@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+<html lang="python">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>constitutive module &#8212; TACS  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=0a676766" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=a888008e"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="elements module" href="elements.html" />
+    <link rel="prev" title="Core modules" href="core.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="elements.html" title="elements module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core modules"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" accesskey="U">Core modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">constitutive module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="constitutive-module">
+<h1>constitutive module<a class="headerlink" href="#constitutive-module" title="Permalink to this heading">¶</a></h1>
+<p>The <cite>tacs.constitutive</cite> contains classes responsible for defining constitutive behaviors for elements.</p>
+<section id="material-classes">
+<h2>Material classes<a class="headerlink" href="#material-classes" title="Permalink to this heading">¶</a></h2>
+<p>Most constitutive classes require a material properties class to setup. The following classes are available in TACS:</p>
+<span class="target" id="module-tacs.constitutive"></span><dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">MaterialProperties</span></span><a class="headerlink" href="#tacs.constitutive.MaterialProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class stores the mechanical and thermal material properties for
+isotropic and anisotropic materials.</p>
+<p>The goal of this class is to store a set of material properties
+that can be queried by constitutive classes for beams, shells,
+plane stress and solid elements. The minimum set of properties
+consists of isotropic mechanical properties, with zero thermal
+expansion.</p>
+<p>There are several different ways of specifying material
+properties. The following describes several of the possible
+ways and the appropriate situations:</p>
+<blockquote>
+<div><p>'rho' + 'specific_heat' + 'kappa':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, and thermal conductivity for an isotropic material.
+This is appropriate for 2D or 3D heat conduction analysis.</p>
+</div></blockquote>
+<p>'rho' + 'specific_heat' + 'kappa1' + 'kappa2':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, and thermal conductivity for an orthotropic material.
+This is appropriate for 2D heat conduction analysis.</p>
+</div></blockquote>
+<p>'rho' + 'specific_heat' + 'kappa1' + 'kappa2' + 'kappa3':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, and thermal conductivity for an orthotropic material.
+This is appropriate for 3D heat conduction analysis.</p>
+</div></blockquote>
+<p>'rho' + 'E' + 'nu' + 'ys':</p>
+<blockquote>
+<div><p>Specifies the density, Youngs' modulus, Poisson's ratio, and yield strength for an isotropic material.
+This is appropriate for 2D or 3D elastic structural analysis.</p>
+</div></blockquote>
+<p>'rho' + 'E1' + 'E2' + 'nu12' + 'G12' + 'T1' + 'T2' + 'C1' + 'C2' + 'S12':</p>
+<blockquote>
+<div><p>Specifies the density, Youngs' moduli, Poisson's ratios, and strength values for an orthotropic material.
+This is appropriate for 2D elastic structural analysis.</p>
+</div></blockquote>
+<p>'rho' + 'E1' + 'E2' + 'E3' + 'nu12' + 'nu13' + 'nu23' + 'G12' + 'G13' + 'G23'
++ 'T1' + 'T2' + 'T3' + 'C1' + 'C2' + 'C3' + 'S12' + 'S13' + 'S23':</p>
+<blockquote>
+<div><p>Specifies the density, Youngs' moduli, Poisson's ratios, and strength values for an orthotropic material.
+This is appropriate for 3D elastic structural analysis.</p>
+</div></blockquote>
+<p>'rho'  + 'specific_heat' + 'kappa' + 'alpha' + 'E' + 'nu' + 'ys':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, thermal conductivity, thermal expansion, Youngs' modulus,
+Poisson's ratio, and yield strength for an isotropic material.
+This is appropriate for 2D or 3D thermoelastic structural analysis.</p>
+</div></blockquote>
+<p>'rho'  + 'specific_heat' + 'kappa1' + 'kappa2' + 'alpha1' + 'alpha2'
++ 'E1' + 'E2' + 'nu12' + 'G12' + 'T1' + 'T2' + 'C1' + 'C2' + 'S12':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, thermal conductivity, thermal expansion, Youngs' moduli,
+Poisson's ratios, and strength values for an orthotropic material.
+This is appropriate for 2D thermoelastic structural analysis.</p>
+</div></blockquote>
+<p>'rho'  + 'specific_heat' + 'kappa1' + 'kappa2' + 'kappa3' + 'alpha1' + 'alpha2' + 'alpha3'
++ 'E1' + 'E2' + 'E3' + 'nu12' + 'nu13' + 'nu23' + 'G12' + 'G13' + 'G23'
++ 'T1' + 'T2' + 'T3' + 'C1' + 'C2' + 'C3' + 'S12' + 'S13' + 'S23':</p>
+<blockquote>
+<div><p>Specifies the density, specific heat, thermal conductivity, thermal expansion, Youngs' moduli,
+Poisson's ratios, and strength values for an orthotropic material.
+This is appropriate for 3D thermoelastic structural analysis.</p>
+</div></blockquote>
+</div></blockquote>
+<p>All parameters are optional and specified using a keyword arg format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material density (keyword argument).</p></li>
+<li><p><strong>specific_heat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material specific heat (keyword argument).</p></li>
+<li><p><strong>kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic thermal conductivity (keyword argument).</p></li>
+<li><p><strong>kappa1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic thermal conductivity
+in the '1' direction (keyword argument).</p></li>
+<li><p><strong>kappa2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic thermal conductivity
+in the '2' direction (keyword argument).</p></li>
+<li><p><strong>kappa3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic thermal conductivity
+in the '3' direction (keyword argument).</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic thermal expansion coeeficient (keyword argument).</p></li>
+<li><p><strong>alpha1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The material orthotropic thermal expansion coefficient in the '1' direction
+(keyword argument).</p></li>
+<li><p><strong>alpha2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic thermal expansion coefficient in the '2' direction
+(keyword argument).</p></li>
+<li><p><strong>alpha3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic thermal expansion coefficient in the '3' direction
+(keyword argument).</p></li>
+<li><p><strong>E</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic Youngs' modulus (keyword argument).</p></li>
+<li><p><strong>E1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Youngs' modulus
+in the '1' direction (keyword argument).</p></li>
+<li><p><strong>E2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Youngs' modulus
+in the '2' direction (keyword argument).</p></li>
+<li><p><strong>E3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Youngs' modulus
+in the '3' direction (keyword argument).</p></li>
+<li><p><strong>nu</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic Poisson's ratio (keyword argument).</p></li>
+<li><p><strong>nu12</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Poisson's ratio
+in the '1-2' plane (keyword argument).</p></li>
+<li><p><strong>nu13</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Poisson's ratio
+in the '1-3' plane (keyword argument).</p></li>
+<li><p><strong>nu23</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic Poisson's ratio
+in the '2-3' plane (keyword argument).</p></li>
+<li><p><strong>G</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic shear modulus (keyword argument).</p></li>
+<li><p><strong>G12</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear modulus in the '1-2' plane (keyword argument).</p></li>
+<li><p><strong>G13</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear modulus in the '1-3' plane (keyword argument).</p></li>
+<li><p><strong>G23</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear modulus in the '2-3' plane (keyword argument).</p></li>
+<li><p><strong>ys</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material isotropic yield strength (keyword argument).</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic tension strength
+in the '1' direction (keyword argument).</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic tension strength
+in the '2' direction (keyword argument).</p></li>
+<li><p><strong>T3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic tension strength
+in the '3' direction (keyword argument).</p></li>
+<li><p><strong>C1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic compression strength
+in the '1' direction (keyword argument).</p></li>
+<li><p><strong>C2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic compression strength
+in the '2' direction (keyword argument).</p></li>
+<li><p><strong>C3</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic compression strength
+in the '3' direction (keyword argument).</p></li>
+<li><p><strong>S12</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear strength in the '1-2' plane (keyword argument).</p></li>
+<li><p><strong>S13</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear strength in the '1-3' plane (keyword argument).</p></li>
+<li><p><strong>S23</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material orthotropic shear strength in the '2-3' plane (keyword argument).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding material information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/pyNastran.bdf.cards.materials.html#pyNastran.bdf.cards.materials.MAT1" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.materials.MAT1</a> or <a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/pyNastran.bdf.cards.materials.html#pyNastran.bdf.cards.materials.MAT8" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.materials.MAT8</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.getMaterialProperties">
+<span class="sig-name descname"><span class="pre">getMaterialProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.getMaterialProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of the material properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary holding material property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>mat (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.getNastranID">
+<span class="sig-name descname"><span class="pre">getNastranID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.getNastranID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get material ID assigned in NASTRAN card for this object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ID number associated with this object's NASTRAN card</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>id (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.setDensity">
+<span class="sig-name descname"><span class="pre">setDensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rho</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.setDensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the density property values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The material density</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.setNastranID">
+<span class="sig-name descname"><span class="pre">setNastranID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.setNastranID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set material ID to be used in NASTRAN card for this object.
+Should be set before <cite>generateBDFCard</cite> is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- ID number to associate with this object's NASTRAN card</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.MaterialProperties.setSpecificHeat">
+<span class="sig-name descname"><span class="pre">setSpecificHeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specific_heat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.MaterialProperties.setSpecificHeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the density property values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The material specific heat</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.OrthotropicPly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">OrthotropicPly</span></span><a class="headerlink" href="#tacs.constitutive.OrthotropicPly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The following class holds the material stiffness and strength
+properties for an orthotropic ply. This class is used by several
+constitutive classes within TACS.</p>
+<p>The interaction coefficient for the Tsai-Wu failure criterion is set
+to zero by default. If a value of C, the failure stress under
+combined in-plane loading, is supplied, the interaction coefficient
+is determined. Be careful - the value can easily fall outside
+acceptible bounds - these are tested during initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ply_thickness</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The ply thickness.</p></li>
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The ply material property.</p></li>
+<li><p><strong>max_strain_criterion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) -- Flag to determine if max strain strength criterion is to be used.
+Defaults to False (i.e. use max strength).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.OrthotropicPly.getMaterialProperties">
+<span class="sig-name descname"><span class="pre">getMaterialProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.OrthotropicPly.getMaterialProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the MaterialProperties class associated with this object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TACS material property class associated with object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>prop (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties">tacs.constitutive.MaterialProperties</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constitutive-classes">
+<h2>Constitutive classes<a class="headerlink" href="#constitutive-classes" title="Permalink to this heading">¶</a></h2>
+<p>Most <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code> classes require a <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code> class in their setup procedure.
+These objects typically defines mass, stiffness, failure and buckling behaviors for the elements that reference them.
+The following <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code> classes are available in TACS:</p>
+<span class="target" id="module-0"></span><dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.BasicBeamConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">BasicBeamConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.BasicBeamConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BeamConstitutive</span></code></p>
+<p>Timoshenko theory based constitutive object for an general beam.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>TACS uses a negative sign convention in the product of inertia definition, for example:</dt><dd><p>Iyz = -int[y * z * dA]</p>
+</dd>
+<dt>The moments of area are always positive, as usual:</dt><dd><p>Iyy = int[(z^2 * dA]</p>
+</dd>
+</dl>
+</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>A</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Beam cross-sectional area (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>J</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Beam polar moment of area about x-axis (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>Iy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Beam area moment of area about y-axis (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>Iz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Beam area moment of area about z-axis (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>Iyz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Beam product of area in yz-plane (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>ky</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Shear correction factor in y-direction (keyword argument). Defaults to 5/6.</p></li>
+<li><p><strong>kz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Shear correction factor in z-direction (keyword argument). Defaults to 5/6.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BasicBeamConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BasicBeamConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.bars.html#pyNastran.bdf.cards.properties.bars.PBAR" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.bars.PBAR</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">BladeStiffenedShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.ShellConstitutive" title="tacs.constitutive.ShellConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a></p>
+<p>This constitutive class models a shell stiffened with T-shaped stiffeners.
+The stiffeners are not explicitly modelled.
+Instead, their stiffness is &quot;smeared&quot; across the shell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>panelPly</strong> (<a class="reference internal" href="#tacs.constitutive.OrthotropicPly" title="tacs.constitutive.OrthotropicPly"><em>tacs.constitutive.OrthotropicPly</em></a>) -- Ply model to use for the panel</p></li>
+<li><p><strong>stiffenerPly</strong> (<a class="reference internal" href="#tacs.constitutive.OrthotropicPly" title="tacs.constitutive.OrthotropicPly"><em>tacs.constitutive.OrthotropicPly</em></a>) -- Ply model to use for the stiffener</p></li>
+<li><p><strong>kcorr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Shear correction factor, usually 5.0/6.0</p></li>
+<li><p><strong>panelLength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Panel length DV value</p></li>
+<li><p><strong>panelLengthNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- Panel lenth DV number, passing a negative value tells TACS not to treat this as a DV</p></li>
+<li><p><strong>stiffenerPitch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Stiffener pitch DV value</p></li>
+<li><p><strong>stiffenerPitchNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- DV number, passing a negative value tells TACS not to treat this as a DV</p></li>
+<li><p><strong>panelThick</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Panel thickness DV value</p></li>
+<li><p><strong>panelThickNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- DV number, passing a negative value tells TACS not to treat this as a DV</p></li>
+<li><p><strong>numPanelPlies</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- Number of distinct ply angles in the panel</p></li>
+<li><p><strong>panelPlyAngles</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply angles in the panel</p></li>
+<li><p><strong>panelPlyFracs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply fractions in the panel</p></li>
+<li><p><strong>panelPlyFracNums</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><em>np.intc</em><em>]</em>) -- Array of ply fraction DV numbers in the panel, passing negative values tells TACS not to treat that ply fraction as a DV</p></li>
+<li><p><strong>stiffenerHeight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Stiffener height DV value</p></li>
+<li><p><strong>stiffenerHeightNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- DV number, passing a negative value tells TACS not to treat this as a DV</p></li>
+<li><p><strong>stiffenerThick</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Stiffener thickness DV value</p></li>
+<li><p><strong>stiffenerThickNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- DV number, passing a negative value tells TACS not to treat this as a DV</p></li>
+<li><p><strong>numStiffenerPlies</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) -- Number of distinct ply angles in the stiffener</p></li>
+<li><p><strong>stiffenerPlyAngles</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply angles for the stiffener</p></li>
+<li><p><strong>stiffenerPlyFracs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply fractions for the stiffener</p></li>
+<li><p><strong>stiffenerPlyFracNums</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.intc" title="(in NumPy v1.26)"><em>numpy.intc</em></a><em>]</em>) -- Array of ply fraction DV numbers for the stiffener, passing negative values tells TACS not to treat that ply fraction as a DV</p></li>
+<li><p><strong>flangeFraction</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) -- Ratio of the stiffener base width to the stiffener height, by default 1.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> -- Raises error if panelPlyAngles, panelPlyFracs, or panelPlyFracNums do not have numPanelPlies entries</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> -- Raises error if stiffenerPlyAngles, stiffenerPlyFracs, or stiffenerPlyFracNums do not have numStiffenerPlies entries</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setKSWeight">
+<span class="sig-name descname"><span class="pre">setKSWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ksWeight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setKSWeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the ks weight used for aggregating the different failure modes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ksWeight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) -- KS aggregation weight</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setPanelPlyFractionBounds">
+<span class="sig-name descname"><span class="pre">setPanelPlyFractionBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelPlyFractionBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the panel ply fraction design variables</p>
+<p>The default bounds are 0 and 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Upper bounds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> -- Raises error if the length of lowerBound or upperBound is not equal to the number of panel plies</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setPanelThicknessBounds">
+<span class="sig-name descname"><span class="pre">setPanelThicknessBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelThicknessBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the panel thickness design variable</p>
+<p>The default bounds are 1e-4 and 1e20</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Upper bound</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerHeightBounds">
+<span class="sig-name descname"><span class="pre">setStiffenerHeightBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerHeightBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the stiffener height design variable</p>
+<p>The default bounds are 1e-3 and 1e20</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Upper bound</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPitchBounds">
+<span class="sig-name descname"><span class="pre">setStiffenerPitchBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPitchBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the stiffener pitch design variable</p>
+<p>The default bounds are 1e-3 and 1e20</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Upper bound</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPlyFractionBounds">
+<span class="sig-name descname"><span class="pre">setStiffenerPlyFractionBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPlyFractionBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the stiffener ply fraction design variables</p>
+<p>The default bounds are 0 and 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Upper bounds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> -- Raises error if the length of lowerBound or upperBound is not equal to the number of stiffener plies</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerThicknessBounds">
+<span class="sig-name descname"><span class="pre">setStiffenerThicknessBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lowerBound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperBound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerThicknessBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lower and upper bounds for the stiffener thickness design variable</p>
+<p>The default bounds are 1e-4 and 1e20</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowerBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Lower bound</p></li>
+<li><p><strong>upperBound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Upper bound</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.CompositeShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">CompositeShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.CompositeShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.ShellConstitutive" title="tacs.constitutive.ShellConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a></p>
+<p>This constitutive class defines the stiffness properties for a
+composite laminate first-order shear deformation theory (FSDT) shell type element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ply_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>[</em><a class="reference internal" href="#tacs.constitutive.OrthotropicPly" title="tacs.constitutive.OrthotropicPly"><em>OrthotropicPly</em></a><em>]</em>) -- List of ply properties in layup.</p></li>
+<li><p><strong>ply_thicknesses</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply thicknesses in layup.</p></li>
+<li><p><strong>ply_angles</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply angles (in radians) in layup.</p></li>
+<li><p><strong>kcorr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- FSDT shear correction factor. Defaults to 5.0/6.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.CompositeShellConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.CompositeShellConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.shell.html#pyNastran.bdf.cards.properties.shell.PCOMP" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.shell.PCOMP</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.DOFSpringConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">DOFSpringConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.DOFSpringConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.GeneralSpringConstitutive" title="tacs.constitutive.GeneralSpringConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralSpringConstitutive</span></code></a></p>
+<p>This is the base class for the traditional spring constitutive objects with no dof coupling.
+Assumes 6 dofs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>k</strong> (<em>array-like</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Stiffness values for all 6 dofs.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.DOFSpringConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.DOFSpringConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.bush.html#pyNastran.bdf.cards.properties.bush.PBUSH" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.bush.PBUSH</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.GeneralMassConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">GeneralMassConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.GeneralMassConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the fully general point mass constitutive objects.
+Assumes 6 dofs (3 translations + 3 rotations).
+The mass properties of this object are specified using a symmetric 6 x 6 mass matrix, as shown below.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">M[ 0] M[ 1] M[ 2] M[ 3] M[ 4] M[ 5]</div>
+<div class="line">M[ 1] M[ 6] M[ 7] M[ 8] M[ 9] M[10]</div>
+<div class="line">M[ 2] M[ 7] M[11] M[12] M[13] M[14]</div>
+<div class="line">M[ 3] M[ 8] M[12] M[15] M[16] M[17]</div>
+<div class="line">M[ 4] M[ 9] M[13] M[16] M[18] M[19]</div>
+<div class="line">M[ 5] M[10] M[14] M[17] M[19] M[20]</div>
+</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>M</strong> (<em>array-like</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Flattened array containing one side of symmetric mass matrix entries.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.GeneralMassConstitutive.evalMassMatrix">
+<span class="sig-name descname"><span class="pre">evalMassMatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.GeneralMassConstitutive.evalMassMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate 6x6 symmetric mass matrix associated with this element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Length 21 flattened array representing unique entries of mass matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>M (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)">numpy.ndarray</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.GeneralSpringConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">GeneralSpringConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.GeneralSpringConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the fully general spring constitutive objects.
+Assumes 6 dofs (3 translations + 3 rotations).
+The spring properties of this object are specified using a symmetric 6 x 6 stiffness matrix, as shown below.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">K[ 0] K[ 1] K[ 2] K[ 3] K[ 4] K[ 5]</div>
+<div class="line">K[ 1] K[ 6] K[ 7] K[ 8] K[ 9] K[10]</div>
+<div class="line">K[ 2] K[ 7] K[11] K[12] K[13] K[14]</div>
+<div class="line">K[ 3] K[ 8] K[12] K[15] K[16] K[17]</div>
+<div class="line">K[ 4] K[ 9] K[13] K[16] K[18] K[19]</div>
+<div class="line">K[ 5] K[10] K[14] K[17] K[19] K[20]</div>
+</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>K</strong> (<em>array-like</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Flattened array containing one side of symmetric stiffness matrix entries.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoRectangleBeamConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">IsoRectangleBeamConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.IsoRectangleBeamConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BeamConstitutive</span></code></p>
+<p>Timoshenko theory based constitutive object for a solid rectangular beam.</p>
+<p>The thickness dimension is assumed to measured along the beam's local reference axis,
+the width is perpindicular to the reference axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Cross-section width (keyword argument). Defaults to 1.0.</p></li>
+<li><p><strong>wNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to width (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>wlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on width (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>wub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on width diameter (keyword argument). Defaults to 10.0.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Cross-section thickness (keyword argument). Defaults to 0.1.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to thickness (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on thickness (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on thickness (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoRectangleBeamConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.IsoRectangleBeamConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.bars.html#pyNastran.bdf.cards.properties.bars.PBARL" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.bars.PBARL</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">IsoShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.IsoShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.ShellConstitutive" title="tacs.constitutive.ShellConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a></p>
+<p>This constitutive class defines the stiffness properties for a
+isotropic first-order shear deformation theory shell type element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material thickness (keyword argument). Defaults to 1.0.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to thickness (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable lower bound (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable upper bound (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoShellConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.IsoShellConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.shell.html#pyNastran.bdf.cards.properties.shell.PSHELL" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.shell.PSHELL</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoTubeBeamConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">IsoTubeBeamConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.IsoTubeBeamConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BeamConstitutive</span></code></p>
+<p>Timoshenko theory based constitutive object for a hollow circular beam.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>d</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Tube inner diameter (keyword argument). Defaults to 1.0.</p></li>
+<li><p><strong>dNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to tube diameter (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>dlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on tube diameter (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>dub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on tube diameter (keyword argument). Defaults to 10.0.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Tube wall thickness (keyword argument). Defaults to 0.1.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to wall thickness (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on wall thickness (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on wall thickness (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.IsoTubeBeamConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.IsoTubeBeamConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.bars.html#pyNastran.bdf.cards.properties.bars.PBARL" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.bars.PBARL</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.LamParamShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">LamParamShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.LamParamShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.ShellConstitutive" title="tacs.constitutive.ShellConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.PhaseChangeMaterialConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">PhaseChangeMaterialConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.PhaseChangeMaterialConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the phase change material constitutive objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>solid_props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property of the solid phase.</p></li>
+<li><p><strong>liquid_props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property of the liquid phase.</p></li>
+<li><p><strong>lh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The specific latent heat of the material.</p></li>
+<li><p><strong>mt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- The melting temperature of the material.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material thickness (keyword argument). Defaults to 1.0.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to thickness (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable lower bound (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable upper bound (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.PlaneStressConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">PlaneStressConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.PlaneStressConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the plane stress constitutive objects.
+All objects performing plane stress analysis should utilize this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material thickness (keyword argument). Defaults to 1.0.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to thickness (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable lower bound (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Thickness variable upper bound (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.PointMassConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">PointMassConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.PointMassConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.GeneralMassConstitutive" title="tacs.constitutive.GeneralMassConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralMassConstitutive</span></code></a></p>
+<p>This is the base class for the traditional point mass constitutive objects with no translation-rotation coupling.
+Assumes 6 dofs.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>TACS uses a negative sign convention in the product of inertia definition, for example:</dt><dd><p>I12 = -int[x1 * x2 * dm]</p>
+</dd>
+<dt>The moments of inertia are always positive, as usual:</dt><dd><p>I11 = int[(x2^2 + x3^2) * dm]</p>
+</dd>
+</dl>
+</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Mass value (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I11</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '1' direction (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I22</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '2' direction (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I33</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '3' direction (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I12</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '1-2' plane (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I13</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '1-3' plane (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I23</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Moment of inertia in '2-3' plane (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>mNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to m (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>mlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on m (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>mub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on wall thickness (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I11Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I11 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I11lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I11 (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I11ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I11 (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I22Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I22 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I22lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I22 (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I22ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I22 (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I33Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I33 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I33lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I33 (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>I33ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I33 (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I12Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I12 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I12lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I12 (keyword argument). Defaults to -1e20.</p></li>
+<li><p><strong>I12ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I12 (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I13Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I13 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I13lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I13 (keyword argument). Defaults to -1e20.</p></li>
+<li><p><strong>I13ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I13 (keyword argument). Defaults to 1e20.</p></li>
+<li><p><strong>I23Num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to I23 (keyword argument). Defaults to -1.</p></li>
+<li><p><strong>I23lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound on I23 (keyword argument). Defaults to -1e20.</p></li>
+<li><p><strong>I23ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound on I23 (keyword argument). Defaults to 1e20.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.ShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">ShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.ShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the shell constitutive objects.
+All objects performing shell elastic analysis should utilize this class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.ShellConstitutive.setDrillingRegularization">
+<span class="sig-name descname"><span class="pre">setDrillingRegularization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kpenalty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.ShellConstitutive.setDrillingRegularization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update regularization parameter used to stiffen shell in drilling rotation dof.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kpenalty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) -- Drilling regularization parameter. Defaults to 10.0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.SmearedCompositeShellConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">SmearedCompositeShellConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.SmearedCompositeShellConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tacs.constitutive.ShellConstitutive" title="tacs.constitutive.ShellConstitutive"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a></p>
+<p>This constitutive class defines the stiffness properties for a
+composite laminate first-order shear deformation theory (FSDT) shell type element.
+The stiffness of the laminate is computed by homogenizing the stiffness properties
+of each ply through the thickness weighted by their relative ply fractions. This class
+is a good continuous parametrization for laminates used in gradient-based optimizations where
+stacking sequence effects can be ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ply_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>[</em><a class="reference internal" href="#tacs.constitutive.OrthotropicPly" title="tacs.constitutive.OrthotropicPly"><em>OrthotropicPly</em></a><em>]</em>) -- List of ply properties in layup.</p></li>
+<li><p><strong>thicknesses</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) -- Total laminate thickness of layup.</p></li>
+<li><p><strong>ply_angles</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Array of ply angles (in radians) in layup.</p></li>
+<li><p><strong>ply_fractions</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) -- Fraction of layup contribution of each ply in ply_list.</p></li>
+<li><p><strong>thickness_dv_num</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to thickness (keyword argument).
+Defaults to -1.</p></li>
+<li><p><strong>ply_fraction_dv_nums</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) -- Design variable numbers to assign to ply fractions (keyword argument).
+Defaults to -1.</p></li>
+<li><p><strong>thickness_lb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Lower bound for thickness design variable (keyword argument).
+Defaults to 0.0.</p></li>
+<li><p><strong>thickness_ub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- Upper bound for thickness design variable (keyword argument).
+Defaults to 1e20.</p></li>
+<li><p><strong>ply_fraction_lb</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em><em>, </em><em>optional</em>) -- Lower bound for ply fraction design variables (keyword argument).
+Defaults to 0.0.</p></li>
+<li><p><strong>ply_fraction_ub</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><em>numpy.ndarray</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em><em>, </em><em>optional</em>) -- Upper bound for ply fraction design variables (keyword argument).
+Defaults to 1.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.SmearedCompositeShellConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.SmearedCompositeShellConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.shell.html#pyNastran.bdf.cards.properties.shell.PCOMP" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.shell.PCOMP</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tacs.constitutive.SolidConstitutive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tacs.constitutive.</span></span><span class="sig-name descname"><span class="pre">SolidConstitutive</span></span><a class="headerlink" href="#tacs.constitutive.SolidConstitutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Constitutive</span></code></p>
+<p>This is the base class for the solid constitutive objects.
+All objects performing solid elastic analysis should utilize this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<a class="reference internal" href="#tacs.constitutive.MaterialProperties" title="tacs.constitutive.MaterialProperties"><em>MaterialProperties</em></a>) -- The material property.</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- The material &quot;thickness&quot; (keyword argument).
+Weighting factor used for topology optimization. 0.0 corresponds to void,
+1.0 corresponds material fully present, values in between are intermediate. Defaults to 1.0.</p></li>
+<li><p><strong>tNum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) -- Design variable number to assign to &quot;thickness&quot; (keyword argument). Defaults to -1
+(i.e. no design variable).</p></li>
+<li><p><strong>tlb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- &quot;Thickness&quot; variable lower bound (keyword argument). Defaults to 0.0.</p></li>
+<li><p><strong>tub</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>, </em><em>optional</em>) -- &quot;Thickness&quot; variable upper bound (keyword argument). Defaults to 10.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tacs.constitutive.SolidConstitutive.generateBDFCard">
+<span class="sig-name descname"><span class="pre">generateBDFCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tacs.constitutive.SolidConstitutive.generateBDFCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate pyNASTRAN card class based on current design variable values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pyNastran card holding property information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>card (<a class="reference external" href="https://pynastran-git.readthedocs.io/en/latest/reference/bdf/cards/properties/pyNastran.bdf.cards.properties.solid.html#pyNastran.bdf.cards.properties.solid.PSOLID" title="(in pyNastran 1.4-dev v1.4-dev)">pyNastran.bdf.cards.properties.solid.PSOLID</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">constitutive module</a><ul>
+<li><a class="reference internal" href="#material-classes">Material classes</a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties"><code class="docutils literal notranslate"><span class="pre">MaterialProperties</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.generateBDFCard()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.getMaterialProperties"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.getMaterialProperties()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.getNastranID"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.getNastranID()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.setDensity"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.setDensity()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.setNastranID"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.setNastranID()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.MaterialProperties.setSpecificHeat"><code class="docutils literal notranslate"><span class="pre">MaterialProperties.setSpecificHeat()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.OrthotropicPly"><code class="docutils literal notranslate"><span class="pre">OrthotropicPly</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.OrthotropicPly.getMaterialProperties"><code class="docutils literal notranslate"><span class="pre">OrthotropicPly.getMaterialProperties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#constitutive-classes">Constitutive classes</a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.BasicBeamConstitutive"><code class="docutils literal notranslate"><span class="pre">BasicBeamConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.BasicBeamConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">BasicBeamConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setKSWeight"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setKSWeight()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelPlyFractionBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setPanelPlyFractionBounds()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelThicknessBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setPanelThicknessBounds()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerHeightBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setStiffenerHeightBounds()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPitchBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setStiffenerPitchBounds()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPlyFractionBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setStiffenerPlyFractionBounds()</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerThicknessBounds"><code class="docutils literal notranslate"><span class="pre">BladeStiffenedShellConstitutive.setStiffenerThicknessBounds()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.CompositeShellConstitutive"><code class="docutils literal notranslate"><span class="pre">CompositeShellConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.CompositeShellConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">CompositeShellConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.DOFSpringConstitutive"><code class="docutils literal notranslate"><span class="pre">DOFSpringConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.DOFSpringConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">DOFSpringConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.GeneralMassConstitutive"><code class="docutils literal notranslate"><span class="pre">GeneralMassConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.GeneralMassConstitutive.evalMassMatrix"><code class="docutils literal notranslate"><span class="pre">GeneralMassConstitutive.evalMassMatrix()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.GeneralSpringConstitutive"><code class="docutils literal notranslate"><span class="pre">GeneralSpringConstitutive</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.IsoRectangleBeamConstitutive"><code class="docutils literal notranslate"><span class="pre">IsoRectangleBeamConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.IsoRectangleBeamConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">IsoRectangleBeamConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.IsoShellConstitutive"><code class="docutils literal notranslate"><span class="pre">IsoShellConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.IsoShellConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">IsoShellConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.IsoTubeBeamConstitutive"><code class="docutils literal notranslate"><span class="pre">IsoTubeBeamConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.IsoTubeBeamConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">IsoTubeBeamConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.LamParamShellConstitutive"><code class="docutils literal notranslate"><span class="pre">LamParamShellConstitutive</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.PhaseChangeMaterialConstitutive"><code class="docutils literal notranslate"><span class="pre">PhaseChangeMaterialConstitutive</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.PlaneStressConstitutive"><code class="docutils literal notranslate"><span class="pre">PlaneStressConstitutive</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.PointMassConstitutive"><code class="docutils literal notranslate"><span class="pre">PointMassConstitutive</span></code></a></li>
+<li><a class="reference internal" href="#tacs.constitutive.ShellConstitutive"><code class="docutils literal notranslate"><span class="pre">ShellConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.ShellConstitutive.setDrillingRegularization"><code class="docutils literal notranslate"><span class="pre">ShellConstitutive.setDrillingRegularization()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.SmearedCompositeShellConstitutive"><code class="docutils literal notranslate"><span class="pre">SmearedCompositeShellConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.SmearedCompositeShellConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">SmearedCompositeShellConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tacs.constitutive.SolidConstitutive"><code class="docutils literal notranslate"><span class="pre">SolidConstitutive</span></code></a><ul>
+<li><a class="reference internal" href="#tacs.constitutive.SolidConstitutive.generateBDFCard"><code class="docutils literal notranslate"><span class="pre">SolidConstitutive.generateBDFCard()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="core.html"
+                          title="previous chapter">Core modules</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="elements.html"
+                          title="next chapter">elements module</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="elements.html" title="elements module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core modules"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >Core modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">constitutive module</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>
