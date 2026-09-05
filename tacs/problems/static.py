@@ -1744,9 +1744,17 @@ class StaticProblem(TACSProblem):
         self.assembler.applyBCs(self.adjRHS)
         bcTerms.axpy(-1.0, self.adjRHS)
 
-        # Solve Linear System
+        # Solve the free-DOF system, whose stiffness is assumed symmetric.
         self.linearSolver.solve(self.adjRHS, self.phi)
-        # Add bc terms back in
+        self.assembler.applyBCs(self.phi)
+
+        # Row-only BCs leave constrained columns in K. For K^T, the
+        # constrained adjoint is rhs_c - K_fc^T * phi_f, not just rhs_c.
+        self.K.multTranspose(self.phi, self.res)
+        bcTerms.axpy(-1.0, self.res)
+        self.res.copyValues(bcTerms)
+        self.assembler.applyBCs(self.res)
+        bcTerms.axpy(-1.0, self.res)
         self.phi.axpy(1.0, bcTerms)
 
         # Copy output values back to user vectors
