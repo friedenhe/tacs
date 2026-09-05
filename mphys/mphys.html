@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="python" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MPhys &#8212; TACS  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/documentation_options.js?v=d048f138"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TacsBuilder class" href="builder.html" />
+    <link rel="prev" title="VolumeConstraint" href="../pytacs/volume.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="builder.html" title="TacsBuilder class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../pytacs/volume.html" title="VolumeConstraint"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../interfaces.html" accesskey="U">Interfaces</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MPhys</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mphys">
+<h1>MPhys<a class="headerlink" href="#mphys" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/mphys/">MPhys</a> is a package that standardizes high-fidelity multiphysics problems in OpenMDAO.
+MPhys provides a convenient interface for connecting TACS problems to optimizers and other physics disciplinary solvers for coupled analysis.
+MPhys is an optional TACS dependency, so in order to use the module within TACS it will need to be installed manually along with its dependencies.
+Assuming the user has already installed TACS, the only additional dependency the user will need to install would be <a class="reference external" href="https://pypi.org/project/petsc4py/">petsc4py</a>.
+These packages can be installed easily in a conda environment using the commands below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mphys</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">petsc4py</span>
+</pre></div>
+</div>
+<p>The TACS MPhys interface consists of one main classes: a builder class called <code class="xref py py-class docutils literal notranslate"><span class="pre">TacsBuilder</span></code>.
+For more information on the general MPhys interface users should see the MPhys <a class="reference external" href="https://openmdao.github.io/mphys/">docs</a>.
+The details of the <code class="xref py py-class docutils literal notranslate"><span class="pre">TacsBuilder</span></code> interface will be discussed in the sections below.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">TacsBuilder class</a></li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../pytacs/volume.html"
+                          title="previous chapter">VolumeConstraint</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="builder.html"
+                          title="next chapter">TacsBuilder class</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="builder.html" title="TacsBuilder class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../pytacs/volume.html" title="VolumeConstraint"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../interfaces.html" >Interfaces</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MPhys</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="python">
+<html lang="python" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Constraint classes &#8212; TACS  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=0a676766" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=a888008e"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=d048f138"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AdjacencyConstraint" href="adjacency.html" />
-    <link rel="prev" title="BucklingProblem" href="buckling.html" /> 
+    <link rel="prev" title="NewtonSolver" href="newton_solver.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -30,7 +30,7 @@
           <a href="adjacency.html" title="AdjacencyConstraint"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="buckling.html" title="BucklingProblem"
+          <a href="newton_solver.html" title="NewtonSolver"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../interfaces.html" >Interfaces</a> &#187;</li>
@@ -45,12 +45,14 @@
           <div class="body" role="main">
             
   <section id="constraint-classes">
-<h1>Constraint classes<a class="headerlink" href="#constraint-classes" title="Permalink to this heading">¶</a></h1>
+<h1>Constraint classes<a class="headerlink" href="#constraint-classes" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="adjacency.html">AdjacencyConstraint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dvcon.html">DVConstraint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="panel_length.html">PanelLengthConstraint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="panel_width.html">PanelWidthConstraint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stiffener_length.html">StiffenerLengthConstraint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="volume.html">VolumeConstraint</a></li>
 </ul>
 </div>
@@ -61,19 +63,19 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="buckling.html"
-                          title="previous chapter">BucklingProblem</a></p>
+    <p class="topless"><a href="newton_solver.html"
+                          title="previous chapter">NewtonSolver</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="adjacency.html"
                           title="next chapter">AdjacencyConstraint</a></p>
   </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -81,13 +83,13 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -100,7 +102,7 @@
           <a href="adjacency.html" title="AdjacencyConstraint"
              >next</a> |</li>
         <li class="right" >
-          <a href="buckling.html" title="BucklingProblem"
+          <a href="newton_solver.html" title="NewtonSolver"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">TACS  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../interfaces.html" >Interfaces</a> &#187;</li>

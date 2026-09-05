@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="python">
+<html lang="python" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Install &#8212; TACS  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=0a676766" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=a888008e"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=d048f138"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Interfaces" href="interfaces.html" />
     <link rel="prev" title="TACS Overview" href="index.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,7 +43,7 @@
           <div class="body" role="main">
             
   <section id="install">
-<h1>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h1>
+<h1>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h1>
 <p>TACS can be readily installed on both Linux and MacOS systems.
 At present, Windows installation is not supported.
 Windows users are recommended to try the following alternatives for accessing TACS:</p>
@@ -54,13 +54,13 @@ Windows users are recommended to try the following alternatives for accessing TA
 </ol>
 <p>For either 1 or 2 any of the installation methods described below should get you setup with TACS.</p>
 <section id="from-anaconda">
-<h2>From Anaconda<a class="headerlink" href="#from-anaconda" title="Permalink to this heading">¶</a></h2>
+<h2>From Anaconda<a class="headerlink" href="#from-anaconda" title="Link to this heading">¶</a></h2>
 <p>For users, TACS can be easily installed through <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>.
 <a class="reference external" href="https://anaconda.org/smdogroup/tacs">Conda packages</a> are available for MacOS and Linux platforms.
 To get started, run the following in a conda terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">TACS</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">TACS</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> <span class="n">mamba</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">TACS</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="o">-</span><span class="n">c</span> <span class="n">smdogroup</span> <span class="n">tacs</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="o">-</span><span class="n">c</span> <span class="n">smdogroup</span> <span class="n">tacs</span>
 </pre></div>
 </div>
 <p>This will create an environment named &quot;TACS&quot; and install the <cite>tacs</cite> package and all
@@ -68,10 +68,10 @@ necessary dependencies. Once installed, the user will have access to all
 TACS C++/python libraries, f5tovtk, f5totec, etc through their conda environment.</p>
 </section>
 <section id="from-source">
-<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this heading">¶</a></h2>
+<h2>From source<a class="headerlink" href="#from-source" title="Link to this heading">¶</a></h2>
 <p>For developers, TACS can also be installed from the source code.</p>
 <section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h3>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
 <p>The following packages are required to use TACS:</p>
 <ul class="simple">
 <li><p>MPI</p></li>
@@ -92,7 +92,7 @@ TACS C++/python libraries, f5tovtk, f5totec, etc through their conda environment
 </ul>
 </section>
 <section id="basic-steps-to-compile-tacs">
-<h3>Basic steps to compile TACS<a class="headerlink" href="#basic-steps-to-compile-tacs" title="Permalink to this heading">¶</a></h3>
+<h3>Basic steps to compile TACS<a class="headerlink" href="#basic-steps-to-compile-tacs" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>Clone the TACS git repository <a class="reference external" href="https://github.com/smdogroup/tacs">tacs</a></p></li>
 <li><p>In the base 'tacs' directory, copy the Makefile.in.info to Makefile.in. Edit
@@ -114,7 +114,7 @@ the following:</p>
 </ol>
 </section>
 <section id="detailed-installation-instructions">
-<h3>Detailed installation instructions<a class="headerlink" href="#detailed-installation-instructions" title="Permalink to this heading">¶</a></h3>
+<h3>Detailed installation instructions<a class="headerlink" href="#detailed-installation-instructions" title="Link to this heading">¶</a></h3>
 <p>The Toolbox for the Analysis of Composite Structures (TACS) is a
 parallel finite-element code written in C++, with an optional python
 interface. TACS has been implemented from the start with gradient-based
@@ -130,7 +130,7 @@ TACS. The dependencies are divided into the following categories:</p>
 </ol>
 </section>
 <section id="checking-out-the-code">
-<h3>Checking out the code<a class="headerlink" href="#checking-out-the-code" title="Permalink to this heading">¶</a></h3>
+<h3>Checking out the code<a class="headerlink" href="#checking-out-the-code" title="Link to this heading">¶</a></h3>
 <p>Using git checkout the source</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">smdogroup</span><span class="o">/</span><span class="n">tacs</span>
 </pre></div>
@@ -151,33 +151,33 @@ The settings in <code class="docutils literal notranslate"><span class="pre">set
 you may wish to modify these settings.</p>
 </section>
 <section id="install-dependencies">
-<h3>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">¶</a></h3>
+<h3>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">¶</a></h3>
 <p>These instructions direct you to install METIS and other dependencies in the directory <code class="docutils literal notranslate"><span class="pre">tacs/extern</span></code>.
 This location for the dependencies is not required, and indeed may not be best.
 If you already have these libraries installed, simply adjust the variables in <code class="docutils literal notranslate"><span class="pre">tacs/Makefile.in</span></code> accordingly.</p>
 <p>Go to the directory <code class="docutils literal notranslate"><span class="pre">tacs/extern</span></code>. Download <code class="docutils literal notranslate"><span class="pre">metis-5.1.0</span></code> from <a class="reference external" href="https://src.fedoraproject.org/lookaside/pkgs/metis/metis-5.1.0.tar.gz/5465e67079419a69e0116de24fce58fe/">https://src.fedoraproject.org/lookaside/pkgs/metis/metis-5.1.0.tar.gz/5465e67079419a69e0116de24fce58fe/</a> and place the file <code class="docutils literal notranslate"><span class="pre">metis-5.1.0.tar.gz</span></code> there.
 Note that METIS needs CMake to build and install.</p>
-<p>Optionally, you can also place <code class="docutils literal notranslate"><span class="pre">SuiteSparse-5.13.0.tar.gz</span></code> (available from <a class="reference external" href="https://github.com/DrTimothyAldenDavis/SuiteSparse/releases">https://github.com/DrTimothyAldenDavis/SuiteSparse/releases</a>) in the same directory if you want to use the approximate minimum degree ordering routines from SuiteSparse.</p>
+<p>Optionally, you can also place the tarball for latest version of SuiteSparse (e.g <code class="docutils literal notranslate"><span class="pre">SuiteSparse-7.10.3.tar.gz</span></code> available from <a class="reference external" href="https://github.com/DrTimothyAldenDavis/SuiteSparse/releases">https://github.com/DrTimothyAldenDavis/SuiteSparse/releases</a>) in the same directory if you want to use the approximate minimum degree ordering routines from SuiteSparse.</p>
 <p>Also optionally, place <code class="docutils literal notranslate"><span class="pre">tecio.tgz</span></code> (available from <a class="reference external" href="https://www.tecplot.com/products/tecio-library/">https://www.tecplot.com/products/tecio-library/</a>) in the same directory if you want to build <code class="docutils literal notranslate"><span class="pre">f5totec</span></code>.
 Note that TecIO requires the boost library, which can be install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libboost-dev</span></code> on debian systems.</p>
 <p>Then, to build the dependencies, simply run <code class="docutils literal notranslate"><span class="pre">make</span></code>. If the build process ends with something like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">***</span> <span class="n">No</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">make</span> <span class="n">target</span> <span class="s1">&#39;w&#39;</span><span class="o">.</span>  <span class="n">Stop</span><span class="o">.</span>
-<span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">Leaving</span> <span class="n">directory</span> <span class="s1">&#39;SomeDirectory/tacs/extern/metis-5.1.0/build/Linux-x86_64&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">***</span> <span class="n">No</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">make</span> <span class="n">target</span> <span class="s1">'w'</span><span class="o">.</span>  <span class="n">Stop</span><span class="o">.</span>
+<span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">Leaving</span> <span class="n">directory</span> <span class="s1">'SomeDirectory/tacs/extern/metis-5.1.0/build/Linux-x86_64'</span>
 <span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="o">***</span> <span class="p">[</span><span class="n">Makefile</span><span class="p">:</span><span class="mi">64</span><span class="p">:</span> <span class="n">install</span><span class="p">]</span> <span class="n">Error</span> <span class="mi">2</span>
-<span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">Leaving</span> <span class="n">directory</span> <span class="s1">&#39;SomeDirectory/tacs/extern/metis-5.1.0&#39;</span>
+<span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">Leaving</span> <span class="n">directory</span> <span class="s1">'SomeDirectory/tacs/extern/metis-5.1.0'</span>
 <span class="n">make</span><span class="p">:</span> <span class="o">***</span> <span class="p">[</span><span class="n">Makefile</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span> <span class="n">default</span><span class="p">]</span> <span class="n">Error</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Then try manually running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> within the <code class="docutils literal notranslate"><span class="pre">metis-5.1.0</span></code> directory.</p>
 </section>
 <section id="make-the-c-tacs-library">
-<h3>Make the C++ TACS library<a class="headerlink" href="#make-the-c-tacs-library" title="Permalink to this heading">¶</a></h3>
+<h3>Make the C++ TACS library<a class="headerlink" href="#make-the-c-tacs-library" title="Link to this heading">¶</a></h3>
 <p>Return to the root TACS directory.
 Ensure that all appropriate variables are set in <code class="docutils literal notranslate"><span class="pre">Makefile.in</span></code>.
 Make the TACS libraries by running <code class="docutils literal notranslate"><span class="pre">make</span></code> from the root directory.</p>
 </section>
 <section id="install-postprocessing-tools">
-<h3>Install postprocessing tools<a class="headerlink" href="#install-postprocessing-tools" title="Permalink to this heading">¶</a></h3>
+<h3>Install postprocessing tools<a class="headerlink" href="#install-postprocessing-tools" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">f5tovtk</span></code> and <code class="docutils literal notranslate"><span class="pre">f5totec</span></code> are executables that convert <code class="docutils literal notranslate"><span class="pre">.f5</span></code> files to Paraview <code class="docutils literal notranslate"><span class="pre">.vtk</span></code> and <code class="docutils literal notranslate"><span class="pre">.plt</span></code> formats compatible with Paraview and Tecplot respectively.
 After compiling the C++ TACS library, go to the subdirectory <code class="docutils literal notranslate"><span class="pre">tacs/extern/f5tovtk</span></code> and run <code class="docutils literal notranslate"><span class="pre">make</span></code> there.</p>
 <p><code class="docutils literal notranslate"><span class="pre">f5totec</span></code> requires Tecplot's <code class="docutils literal notranslate"><span class="pre">tecio</span></code> library, the installation of which is described above.</p>
@@ -186,14 +186,14 @@ After compiling the C++ TACS library, go to the subdirectory <code class="docuti
 Both scripts accept a <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag that will also convert or clean the <code class="docutils literal notranslate"><span class="pre">.f5</span></code> files in any subdirectories that contain <code class="docutils literal notranslate"><span class="pre">.f5</span></code> files.
 Run <code class="docutils literal notranslate"><span class="pre">f5convert</span> <span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">f5clean</span> <span class="pre">-h</span></code> for more information.</p>
 <p>Add the following lines to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file to add the executables to your path:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to the tacs directory&gt;/extern/f5totec:$PATH&quot;</span>
-<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to the tacs directory&gt;/extern/f5tovtk:$PATH&quot;</span>
-<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path to the tacs directory&gt;/extern:$PATH&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">"&lt;path to the tacs directory&gt;/extern/f5totec:$PATH"</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">"&lt;path to the tacs directory&gt;/extern/f5tovtk:$PATH"</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">"&lt;path to the tacs directory&gt;/extern:$PATH"</span>
 </pre></div>
 </div>
 </section>
 <section id="installing-the-python-interface">
-<h3>Installing the python interface<a class="headerlink" href="#installing-the-python-interface" title="Permalink to this heading">¶</a></h3>
+<h3>Installing the python interface<a class="headerlink" href="#installing-the-python-interface" title="Link to this heading">¶</a></h3>
 <p>The python interface is generated in the <code class="docutils literal notranslate"><span class="pre">tacs/tacs</span></code> sub-directory.
 The interface is generated using Cython.</p>
 <p>The python interface requires the following packages:</p>
@@ -223,13 +223,36 @@ This option is on by default in newer pip versions and therefore should not be n
 </section>
 </section>
 </section>
+<section id="installation-tips-for-common-hpc-systems">
+<h1>Installation tips for common HPC systems<a class="headerlink" href="#installation-tips-for-common-hpc-systems" title="Link to this heading">¶</a></h1>
+<section id="nasa-hecc">
+<h2>NASA HECC<a class="headerlink" href="#nasa-hecc" title="Link to this heading">¶</a></h2>
+<p>We have successfully built TACS on the NASA High End Computing Capability system using the following modules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Currently</span> <span class="n">Loaded</span> <span class="n">Modulefiles</span><span class="p">:</span>
+ <span class="mi">1</span><span class="p">)</span> <span class="n">pkgsrc</span><span class="o">/</span><span class="mi">2023</span><span class="n">Q3</span>   <span class="mi">2</span><span class="p">)</span> <span class="n">mpi</span><span class="o">-</span><span class="n">hpe</span><span class="o">/</span><span class="n">mpt</span><span class="mf">.2.28_25</span><span class="n">Apr23_rhel87</span>   <span class="mi">3</span><span class="p">)</span> <span class="n">comp</span><span class="o">-</span><span class="n">intel</span><span class="o">/</span><span class="mf">2020.4.304</span>   <span class="mi">4</span><span class="p">)</span> <span class="n">python3</span><span class="o">/</span><span class="mf">3.11.5</span>
+</pre></div>
+</div>
+<p>A number of changes are necessary to the default <code class="docutils literal notranslate"><span class="pre">Makefile.in</span></code> file:</p>
+<ul class="simple">
+<li><p>If using intel compilers and one of the <code class="docutils literal notranslate"><span class="pre">mpi-hpe</span></code> modules, use <code class="docutils literal notranslate"><span class="pre">CXX</span> <span class="pre">=</span> <span class="pre">icpc</span> <span class="pre">-lmpi</span></code></p></li>
+<li><p>To build a TACS binary that will work on all node types, use the optimization flags recommended in the <a class="reference external" href="https://www.nas.nasa.gov/hecc/support/kb/recommended-compiler-options_99.html">HECC documentation</a>, <code class="docutils literal notranslate"><span class="pre">-O3</span> <span class="pre">-axCORE-AVX512,CORE-AVX2</span> <span class="pre">-xAVX</span></code></p></li>
+<li><p>If you run into issues related to OpenMP, add <code class="docutils literal notranslate"><span class="pre">-qopenmp</span></code> to the end of the <cite>SO_LINK_FLAGS`</cite> entry</p></li>
+<li><p>To link to Intel's MKL in place of standard blas and lapack, replace the default <code class="docutils literal notranslate"><span class="pre">LAPACK_LIBS</span></code> line with:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MKLPATH=${MKLROOT}/lib/intel64
+MKL_LIBS = -Wl,--start-group ${MKLPATH}/libmkl_intel_lp64.a ${MKLPATH}/libmkl_sequential.a ${MKLPATH}/libmkl_core.a -Wl,--end-group -lpthread
+LAPACK_LIBS = -limf ${MKL_LIBS}
+</pre></div>
+</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -249,6 +272,10 @@ This option is on by default in newer pip versions and therefore should not be n
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#installation-tips-for-common-hpc-systems">Installation tips for common HPC systems</a><ul>
+<li><a class="reference internal" href="#nasa-hecc">NASA HECC</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -262,7 +289,7 @@ This option is on by default in newer pip versions and therefore should not be n
     <p class="topless"><a href="interfaces.html"
                           title="next chapter">Interfaces</a></p>
   </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -270,13 +297,13 @@ This option is on by default in newer pip versions and therefore should not be n
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">

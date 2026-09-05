@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="python">
+<html lang="python" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>pyTACS &#8212; TACS  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=0a676766" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=a888008e"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=d048f138"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pyTACS class" href="pytacs_module.html" />
     <link rel="prev" title="Direct" href="../core/TACS.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,15 +44,15 @@
           <div class="body" role="main">
             
   <section id="pytacs">
-<h1>pyTACS<a class="headerlink" href="#pytacs" title="Permalink to this heading">¶</a></h1>
+<h1>pyTACS<a class="headerlink" href="#pytacs" title="Link to this heading">¶</a></h1>
 <p>The pyTACS interface utilizes a number of Python classes that automate the setup and running of models and analyses in TACS.
 This interface offers the following benefits over the <a class="reference internal" href="../core/TACS.html#direct"><span class="std std-ref">Direct</span></a> approach:
-has a more robust NASTRAN BDF mesh parsing capablity, improved interface for applying loads to structural problems,
+has a more robust NASTRAN BDF mesh parsing capability, improved interface for applying loads to structural problems,
 fewer Python objects to keep track of when running typical analyses.
 The interface consists of two main groups of classes: an assembler class called <a class="reference internal" href="pytacs_module.html#tacs.pytacs.pyTACS" title="tacs.pytacs.pyTACS"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyTACS</span></code></a> and
 a set of problem classes for analysis. The details of the interfaces will be discussed in the sections below.</p>
 <section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h2>
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
 <p>The most common usage of TACS is to evaluate the values and gradients of desired
 structural functions with respect to specified design variables. Using the pyTACS interface, this workflow
 proceeds as follows:</p>
@@ -73,6 +73,7 @@ repeated until the optimization criteria are satisfied.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pytacs_module.html">pyTACS class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="problems.html">Problem classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solvers.html">Solver classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraint classes</a></li>
 </ul>
 </div>
@@ -84,7 +85,7 @@ repeated until the optimization criteria are satisfied.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
@@ -106,7 +107,7 @@ repeated until the optimization criteria are satisfied.</p>
     <p class="topless"><a href="pytacs_module.html"
                           title="next chapter">pyTACS class</a></p>
   </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -114,13 +115,13 @@ repeated until the optimization criteria are satisfied.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">

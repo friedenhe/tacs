@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html lang="python">
+<html lang="python" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; TACS  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=0a676766" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=a888008e"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <script src="_static/documentation_options.js?v=d048f138"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -41,18 +41,21 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
  | <a href="#Z"><strong>Z</strong></a>
@@ -90,9 +93,17 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.addConstraint">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.addConstraint">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.addConstraint">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.addConstraint">(tacs.constraints.VolumeConstraint method)</a>
 </li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.addConstraint">(tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.addConstraintsPyOpt">addConstraintsPyOpt() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.addDVSens">addDVSens() (TACS.Assembler method)</a>
 
       <ul>
@@ -124,6 +135,8 @@
 </li>
       </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.addJacobianVecProduct">addJacobianVecProduct() (TACS.Assembler method)</a>
+</li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.addJacVecProduct">addJacVecProduct() (tacs.problems.StaticProblem method)</a>
 </li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.addLoadFromBDF">addLoadFromBDF() (tacs.problems.BucklingProblem method)</a>
 
@@ -199,7 +212,7 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.addTractionToElements">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.addTransposeJacVecProduct">addTransposeJacVecProduct() (tacs.problems.StaticProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.addVariablesPyOpt">addVariablesPyOpt() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.addXptSens">addXptSens() (TACS.Assembler method)</a>
 
@@ -211,11 +224,15 @@
       </ul></li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint">AdjacencyConstraint (class in tacs.constraints)</a>
 </li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.adjRHS">adjRHS (tacs.mach.struct_problem.StructProblem property)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.applyBCs">applyBCs() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.applyBCsToVec">applyBCsToVec() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.applyMatBCs">applyMatBCs() (TACS.Assembler method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.assembleAdjointRHS">assembleAdjointRHS() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.assembleJacobian">assembleJacobian() (TACS.Assembler method)</a>
 </li>
@@ -237,22 +254,10 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/constitutive.html#tacs.constitutive.BasicBeamConstitutive">BasicBeamConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Beam2">Beam2 (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Beam2ModRot">Beam2ModRot (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Beam3">Beam3 (class in tacs.elements)</a>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver">BaseSolver (class in tacs.solvers)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.Beam3ModRot">Beam3ModRot (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.BeamRefAxisTransform">BeamRefAxisTransform (class in tacs.elements)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive">BladeStiffenedShellConstitutive (class in tacs.constitutive)</a>
-</li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem">BucklingProblem (class in tacs.problems)</a>
 </li>
   </ul></td>
@@ -261,16 +266,94 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.callCounter">callCounter (tacs.mach.struct_problem.StructProblem property)</a>
+</li>
       <li><a href="core/functions.html#tacs.functions.CenterOfMass">CenterOfMass (class in tacs.functions)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.checkGradients">checkGradients() (TACS.Integrator method)</a>
 </li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.checkSolutionFailure">checkSolutionFailure() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="core/functions.html#tacs.functions.Compliance">Compliance (class in tacs.functions)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.CompositeShellConstitutive">CompositeShellConstitutive (class in tacs.constitutive)</a>
+      <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.computeForceVectors">computeForceVectors() (tacs.solvers.ContinuationSolver method)</a>
 </li>
+      <li><a href="core/TACS.html#TACS.Assembler.computeReactions">computeReactions() (TACS.Assembler method)</a>
+</li>
+      <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.computeRefAxis">computeRefAxis() (tacs.constraints.PanelLengthConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.computeRefAxis">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.computeReordering">computeReordering() (TACS.Assembler method)</a>
 </li>
+      <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver">ContinuationSolver (class in tacs.solvers)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.convertDesignVecToDict">convertDesignVecToDict() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.copyFromTACSVec">copyFromTACSVec() (tacs.constraints.AdjacencyConstraint static method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.copyFromTACSVec">(tacs.constraints.DVConstraint static method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.copyFromTACSVec">(tacs.constraints.PanelLengthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.copyFromTACSVec">(tacs.constraints.PanelWidthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.copyFromTACSVec">(tacs.constraints.StiffenerLengthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.copyFromTACSVec">(tacs.constraints.VolumeConstraint static method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.copyFromTACSVec">(tacs.problems.BucklingProblem static method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.copyFromTACSVec">(tacs.problems.ModalProblem static method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.copyFromTACSVec">(tacs.problems.StaticProblem static method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.copyFromTACSVec">(tacs.problems.TransientProblem static method)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.copyFromTACSVec">(tacs.pytacs.pyTACS static method)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.copyFromTACSVec">(tacs.solvers.BaseSolver static method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.copyFromTACSVec">(tacs.solvers.ContinuationSolver static method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.copyFromTACSVec">(tacs.solvers.NewtonSolver static method)</a>
+</li>
+      </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.copyToTACSVec">copyToTACSVec() (tacs.constraints.AdjacencyConstraint static method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.copyToTACSVec">(tacs.constraints.DVConstraint static method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.copyToTACSVec">(tacs.constraints.PanelLengthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.copyToTACSVec">(tacs.constraints.PanelWidthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.copyToTACSVec">(tacs.constraints.StiffenerLengthConstraint static method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.copyToTACSVec">(tacs.constraints.VolumeConstraint static method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.copyToTACSVec">(tacs.problems.BucklingProblem static method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.copyToTACSVec">(tacs.problems.ModalProblem static method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.copyToTACSVec">(tacs.problems.StaticProblem static method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.copyToTACSVec">(tacs.problems.TransientProblem static method)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.copyToTACSVec">(tacs.pytacs.pyTACS static method)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.copyToTACSVec">(tacs.solvers.BaseSolver static method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.copyToTACSVec">(tacs.solvers.ContinuationSolver static method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.copyToTACSVec">(tacs.solvers.NewtonSolver static method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/TACS.html#TACS.Assembler.copyVariables">copyVariables() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.create">create() (TACS.Assembler static method)</a>
@@ -287,6 +370,8 @@
       </ul></li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createDVConstraint">createDVConstraint() (tacs.pytacs.pyTACS method)</a>
 </li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createLamParamFullConstraint">createLamParamFullConstraint() (tacs.pytacs.pyTACS method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.createMat">createMat() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createModalProblem">createModalProblem() (tacs.pytacs.pyTACS method)</a>
@@ -297,13 +382,15 @@
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createNodeVec">(tacs.pytacs.pyTACS method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createPanelLengthConstraint">createPanelLengthConstraint() (tacs.pytacs.pyTACS method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createPanelWidthConstraint">createPanelWidthConstraint() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.createSchurMat">createSchurMat() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createStaticProblem">createStaticProblem() (tacs.pytacs.pyTACS method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.createStiffenerLengthConstraint">createStiffenerLengthConstraint() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.MeshLoader.createTACS">createTACS() (TACS.MeshLoader method)</a>
 </li>
@@ -325,8 +412,6 @@
 </li>
       <li><a href="core/elements.html#tacs.elements.CubicQuadBasis">CubicQuadBasis (class in tacs.elements)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.CubicTetrahedralBasis">CubicTetrahedralBasis (class in tacs.elements)</a>
-</li>
       <li><a href="core/elements.html#tacs.elements.CubicTriangleBasis">CubicTriangleBasis (class in tacs.elements)</a>
 </li>
   </ul></td>
@@ -335,7 +420,9 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/constitutive.html#tacs.constitutive.DOFSpringConstitutive">DOFSpringConstitutive (class in tacs.constitutive)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.dIdu">dIdu (tacs.mach.struct_problem.StructProblem property)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.dSdu">dSdu (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.dtype">dtype (tacs.constraints.AdjacencyConstraint attribute)</a>
 
@@ -343,6 +430,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.dtype">(tacs.constraints.DVConstraint attribute)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.dtype">(tacs.constraints.PanelLengthConstraint attribute)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.dtype">(tacs.constraints.PanelWidthConstraint attribute)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.dtype">(tacs.constraints.StiffenerLengthConstraint attribute)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.dtype">(tacs.constraints.VolumeConstraint attribute)</a>
 </li>
@@ -355,6 +446,12 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.dtype">(tacs.problems.TransientProblem attribute)</a>
 </li>
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.dtype">(tacs.pytacs.pyTACS attribute)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.dtype">(tacs.solvers.BaseSolver attribute)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.dtype">(tacs.solvers.ContinuationSolver attribute)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.dtype">(tacs.solvers.NewtonSolver attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -369,10 +466,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.elemCallBack">elemCallBack() (in module tacs.pytacs)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.Element2D">Element2D (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Element3D">Element3D (class in tacs.elements)</a>
-</li>
       <li><a href="core/functions.html#tacs.functions.EnclosedVolume">EnclosedVolume (class in tacs.functions)</a>
 </li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.evalConstraints">evalConstraints() (tacs.constraints.AdjacencyConstraint method)</a>
@@ -382,7 +475,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.evalConstraints">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.evalConstraints">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.evalConstraints">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.evalConstraints">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.evalConstraints">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       </ul></li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.evalConstraintsSens">evalConstraintsSens() (tacs.constraints.AdjacencyConstraint method)</a>
@@ -392,17 +491,27 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.evalConstraintsSens">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.evalConstraintsSens">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.evalConstraintsSens">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.evalConstraintsSens">(tacs.constraints.VolumeConstraint method)</a>
 </li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.evalConstraintsSens">(tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       </ul></li>
+      <li><a href="core/TACS.html#TACS.Assembler.evalEnergies">evalEnergies() (TACS.Assembler method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/TACS.html#TACS.Assembler.evalEnergies">evalEnergies() (TACS.Assembler method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.evalFuncs">evalFuncs (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.evalFunctions">evalFunctions() (TACS.Assembler method)</a>
 
       <ul>
         <li><a href="core/TACS.html#TACS.Integrator.evalFunctions">(TACS.Integrator method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.evalFunctions">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.evalFunctions">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -413,9 +522,11 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.evalFunctions">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.evalFunctionsSens">evalFunctionsSens() (tacs.problems.BucklingProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.evalFunctionsSens">evalFunctionsSens() (tacs.mach.struct_problem.StructProblem method)</a>
 
       <ul>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.evalFunctionsSens">(tacs.problems.BucklingProblem method)</a>
+</li>
         <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.evalFunctionsSens">(tacs.problems.ModalProblem method)</a>
 </li>
         <li><a href="pytacs/static.html#tacs.problems.StaticProblem.evalFunctionsSens">(tacs.problems.StaticProblem method)</a>
@@ -423,9 +534,33 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.evalFunctionsSens">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="core/constitutive.html#tacs.constitutive.GeneralMassConstitutive.evalMassMatrix">evalMassMatrix() (tacs.constitutive.GeneralMassConstitutive method)</a>
+      <li><a href="core/TACS.html#TACS.Assembler.evalMatSVSensInnerProduct">evalMatSVSensInnerProduct() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.evalSVSens">evalSVSens() (tacs.problems.BucklingProblem method)</a>
+</li>
+      <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.externalClearUpToDate">externalClearUpToDate() (tacs.constraints.PanelLengthConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.externalClearUpToDate">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.fatalFailure">fatalFailure (tacs.solvers.BaseSolver property)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.fatalFailure">(tacs.solvers.ContinuationSolver property)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.fatalFailure">(tacs.solvers.NewtonSolver property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.Fext">Fext (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -433,32 +568,14 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/constitutive.html#tacs.constitutive.GeneralMassConstitutive">GeneralMassConstitutive (class in tacs.constitutive)</a>
+      <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.generateBDFCard">generateBDFCard() (tacs.constitutive.MaterialProperties method)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.GeneralSpringConstitutive">GeneralSpringConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BasicBeamConstitutive.generateBDFCard">generateBDFCard() (tacs.constitutive.BasicBeamConstitutive method)</a>
+      <li><a href="core/TACS.html#TACS.Integrator.getAdjoint">getAdjoint() (TACS.Integrator method)</a>
 
       <ul>
-        <li><a href="core/constitutive.html#tacs.constitutive.CompositeShellConstitutive.generateBDFCard">(tacs.constitutive.CompositeShellConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.DOFSpringConstitutive.generateBDFCard">(tacs.constitutive.DOFSpringConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.IsoRectangleBeamConstitutive.generateBDFCard">(tacs.constitutive.IsoRectangleBeamConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.IsoShellConstitutive.generateBDFCard">(tacs.constitutive.IsoShellConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.IsoTubeBeamConstitutive.generateBDFCard">(tacs.constitutive.IsoTubeBeamConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.generateBDFCard">(tacs.constitutive.MaterialProperties method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.SmearedCompositeShellConstitutive.generateBDFCard">(tacs.constitutive.SmearedCompositeShellConstitutive method)</a>
-</li>
-        <li><a href="core/constitutive.html#tacs.constitutive.SolidConstitutive.generateBDFCard">(tacs.constitutive.SolidConstitutive method)</a>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getAdjoint">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="core/TACS.html#TACS.Integrator.getAdjoint">getAdjoint() (TACS.Integrator method)</a>
-</li>
       <li><a href="core/TACS.html#TACS.Assembler.getBcMap">getBcMap() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.MeshLoader.getBCs">getBCs() (TACS.MeshLoader method)</a>
@@ -478,6 +595,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getConstraintBounds">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getConstraintBounds">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getConstraintBounds">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getConstraintBounds">(tacs.constraints.VolumeConstraint method)</a>
 </li>
       </ul></li>
@@ -487,6 +608,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.getConstraintKeys">(tacs.constraints.DVConstraint method)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getConstraintKeys">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getConstraintKeys">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getConstraintKeys">(tacs.constraints.StiffenerLengthConstraint method)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getConstraintKeys">(tacs.constraints.VolumeConstraint method)</a>
 </li>
@@ -498,7 +623,33 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getConstraintSizes">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getConstraintSizes">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getConstraintSizes">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getConstraintSizes">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+      </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.getCoordName">getCoordName() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.getCoordName">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getCoordName">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getCoordName">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getCoordName">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getCoordName">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getCoordName">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.getCoordName">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getCoordName">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getCoordName">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.getDesignVarRange">getDesignVarRange() (TACS.Assembler method)</a>
@@ -510,7 +661,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getDesignVarRange">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getDesignVarRange">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getDesignVarRange">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getDesignVarRange">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getDesignVarRange">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getDesignVarRange">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -532,6 +689,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getDesignVars">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getDesignVars">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getDesignVars">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getDesignVars">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getDesignVars">(tacs.problems.BucklingProblem method)</a>
@@ -543,6 +704,28 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getDesignVars">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getDesignVarScales">getDesignVarScales() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdIduTransProd">getdIduTransProd() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdIdXdv">getdIdXdv() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdIdXdvTransProd">getdIdXdvTransProd() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdIdXpt">getdIdXpt() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdRdXdvPhi">getdRdXdvPhi() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdRdXdvTransProd">getdRdXdvTransProd() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdRdXptPhi">getdRdXptPhi() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdSduTVec">getdSduTVec() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getdSduVec">getdSduVec() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getDVGeo">getDVGeo() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.getElementData">getElementData() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.MeshLoader.getElementDescript">getElementDescript() (TACS.MeshLoader method)</a>
@@ -552,6 +735,10 @@
       <li><a href="core/TACS.html#TACS.Creator.getElementPartition">getElementPartition() (TACS.Creator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.getElements">getElements() (TACS.Assembler method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getExternalForce">getExternalForce() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getForces">getForces() (tacs.problems.StaticProblem method)</a>
 </li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getFunctionKeys">getFunctionKeys() (tacs.problems.BucklingProblem method)</a>
 
@@ -573,13 +760,25 @@
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.getGradient">getGradient() (TACS.Integrator method)</a>
 </li>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.getHistoryVariables">getHistoryVariables() (tacs.solvers.BaseSolver method)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.getHistoryVariables">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.getHistoryVariables">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.getInitConditions">getInitConditions() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getJacobian">getJacobian() (tacs.problems.StaticProblem method)</a>
 </li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getLoadScale">getLoadScale() (tacs.problems.StaticProblem method)</a>
+</li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getLocalMultiplierNodeIDs">getLocalMultiplierNodeIDs() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getLocalNodeIDsForComps">getLocalNodeIDsForComps() (tacs.pytacs.pyTACS method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getLocalNodeIDsFromGlobal">getLocalNodeIDsFromGlobal() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.getMaterialProperties">getMaterialProperties() (tacs.constitutive.MaterialProperties method)</a>
 
@@ -587,6 +786,8 @@
         <li><a href="core/constitutive.html#tacs.constitutive.OrthotropicPly.getMaterialProperties">(tacs.constitutive.OrthotropicPly method)</a>
 </li>
       </ul></li>
+      <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getModalError">getModalError() (tacs.problems.BucklingProblem method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.getMPIComm">getMPIComm() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.getNastranID">getNastranID() (tacs.constitutive.MaterialProperties method)</a>
@@ -600,7 +801,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getNodes">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getNodes">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getNodes">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getNodes">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getNodes">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getNodes">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -624,6 +831,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getNumCoordinates">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getNumCoordinates">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getNumCoordinates">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getNumCoordinates">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getNumCoordinates">(tacs.problems.BucklingProblem method)</a>
@@ -646,7 +857,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getNumDesignVars">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getNumDesignVars">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getNumDesignVars">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getNumDesignVars">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getNumDesignVars">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getNumDesignVars">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -668,7 +885,11 @@
       <li><a href="core/TACS.html#TACS.Assembler.getNumElements">getNumElements() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.getNumNodes">getNumNodes() (TACS.Assembler method)</a>
+
+      <ul>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getNumNodes">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
+      </ul></li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getNumOwnedMultiplierNodes">getNumOwnedMultiplierNodes() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.getNumOwnedNodes">getNumOwnedNodes() (TACS.Assembler method)</a>
@@ -679,6 +900,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.getNumOwnedNodes">(tacs.constraints.DVConstraint method)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getNumOwnedNodes">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getNumOwnedNodes">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getNumOwnedNodes">(tacs.constraints.StiffenerLengthConstraint method)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getNumOwnedNodes">(tacs.constraints.VolumeConstraint method)</a>
 </li>
@@ -708,6 +933,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getNumVariables">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getNumVariables">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getNumVariables">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getNumVariables">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getNumVariables">(tacs.problems.BucklingProblem method)</a>
@@ -726,6 +955,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getOption">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getOption">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getOption">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getOption">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getOption">(tacs.problems.BucklingProblem method)</a>
@@ -738,31 +971,75 @@
 </li>
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getOption">(tacs.pytacs.pyTACS method)</a>
 </li>
-      </ul></li>
-      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getOrigDesignVars">getOrigDesignVars() (tacs.pytacs.pyTACS method)</a>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.getOption">(tacs.solvers.BaseSolver method)</a>
 </li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.getOption">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.getOption">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.getOptions">getOptions() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.getOptions">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getOptions">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getOptions">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getOptions">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getOptions">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getOptions">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.getOptions">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getOptions">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getOptions">(tacs.problems.TransientProblem method)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getOptions">(tacs.pytacs.pyTACS method)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.getOptions">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.getOptions">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.getOptions">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getOrigDesignVars">getOrigDesignVars() (tacs.mach.struct_problem.StructProblem method)</a>
+
+      <ul>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getOrigDesignVars">(tacs.pytacs.pyTACS method)</a>
+</li>
+      </ul></li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.getOrigNodes">getOrigNodes() (tacs.pytacs.pyTACS method)</a>
+</li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getOutputFileName">getOutputFileName() (tacs.problems.StaticProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.getOwnerRange">getOwnerRange() (TACS.Assembler method)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.SpringRefFrameTransform.getRefAxes">getRefAxes() (tacs.elements.SpringRefFrameTransform method)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.BeamRefAxisTransform.getRefAxis">getRefAxis() (tacs.elements.BeamRefAxisTransform method)</a>
-
-      <ul>
-        <li><a href="core/elements.html#tacs.elements.ShellRefAxisTransform.getRefAxis">(tacs.elements.ShellRefAxisTransform method)</a>
-</li>
-        <li><a href="core/elements.html#tacs.elements.SpringRefAxisTransform.getRefAxis">(tacs.elements.SpringRefAxisTransform method)</a>
-</li>
-      </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.getReordering">getReordering() (TACS.Assembler method)</a>
 </li>
-      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getResidual">getResidual() (tacs.problems.StaticProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getResidual">getResidual() (tacs.mach.struct_problem.StructProblem method)</a>
+
+      <ul>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getResidual">(tacs.problems.StaticProblem method)</a>
+</li>
+      </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getResNorms">getResNorms() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.getSimulationTime">getSimulationTime() (TACS.Assembler method)</a>
 </li>
-      <li><a href="core/TACS.html#TACS.Integrator.getStates">getStates() (TACS.Integrator method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getStateNorm">getStateNorm() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
+      <li><a href="core/TACS.html#TACS.Integrator.getStates">getStates() (TACS.Integrator method)</a>
+
+      <ul>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getStates">(tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      </ul></li>
       <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getTimeStages">getTimeStages() (tacs.problems.TransientProblem method)</a>
 </li>
       <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getTimeSteps">getTimeSteps() (tacs.problems.TransientProblem method)</a>
@@ -783,6 +1060,30 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getVariables">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.getVarName">getVarName() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.getVarName">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getVarName">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getVarName">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getVarName">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getVarName">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getVarName">(tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getVarName">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.getVarName">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.getVarName">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.getVarName">(tacs.problems.TransientProblem method)</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.getVarsPerNode">getVarsPerNode() (TACS.Assembler method)</a>
 
       <ul>
@@ -792,7 +1093,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.getVarsPerNode">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.getVarsPerNode">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.getVarsPerNode">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.getVarsPerNode">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.getVarsPerNode">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.getVarsPerNode">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -807,18 +1114,28 @@
       </ul></li>
       <li><a href="core/TACS.html#TACS.Integrator.getXptGradient">getXptGradient() (TACS.Integrator method)</a>
 </li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.globalAdjointPreCon">globalAdjointPreCon() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.globalDirectPreCon">globalDirectPreCon() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.globalNKPreCon">globalNKPreCon() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.globalToLocalArray">globalToLocalArray() (tacs.pytacs.pyTACS method)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.HeatConduction2D">HeatConduction2D (class in tacs.elements)</a>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.hasConverged">hasConverged (tacs.solvers.BaseSolver property)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.hasConverged">(tacs.solvers.ContinuationSolver property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.HeatConduction3D">HeatConduction3D (class in tacs.elements)</a>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.hasConverged">(tacs.solvers.NewtonSolver property)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -833,20 +1150,34 @@
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.initialize">(tacs.pytacs.pyTACS method)</a>
 </li>
       </ul></li>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.initializeSolve">initializeSolve() (tacs.solvers.BaseSolver method)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.initializeSolve">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.initializeSolve">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Integrator.integrate">integrate() (TACS.Integrator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.integrateAdjoint">integrateAdjoint() (TACS.Integrator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator">Integrator (class in TACS)</a>
 </li>
+      <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.isNonlinear">isNonlinear (tacs.problems.BucklingProblem property)</a>
+
+      <ul>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.isNonlinear">(tacs.problems.ModalProblem property)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.isNonlinear">(tacs.problems.StaticProblem property)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.isNonlinear">(tacs.problems.TransientProblem property)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.isNonlinear">(tacs.pytacs.pyTACS property)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/constitutive.html#tacs.constitutive.IsoRectangleBeamConstitutive">IsoRectangleBeamConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.IsoShellConstitutive">IsoShellConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.IsoTubeBeamConstitutive">IsoTubeBeamConstitutive (class in tacs.constitutive)</a>
-</li>
       <li><a href="core/TACS.html#TACS.Integrator.iterate">iterate() (TACS.Integrator method)</a>
 
       <ul>
@@ -855,12 +1186,22 @@
       </ul></li>
       <li><a href="core/TACS.html#TACS.Integrator.iterateAdjoint">iterateAdjoint() (TACS.Integrator method)</a>
 </li>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.iterationCount">iterationCount (tacs.solvers.BaseSolver property)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.iterationCount">(tacs.solvers.ContinuationSolver property)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.iterationCount">(tacs.solvers.NewtonSolver property)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/functions.html#tacs.functions.KSAggregationType">KSAggregationType (class in tacs.functions)</a>
+</li>
       <li><a href="core/functions.html#tacs.functions.KSDisplacement">KSDisplacement (class in tacs.functions)</a>
 </li>
   </ul></td>
@@ -875,29 +1216,21 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/constitutive.html#tacs.constitutive.LamParamShellConstitutive">LamParamShellConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.LinearElasticity2D">LinearElasticity2D (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.LinearElasticity3D">LinearElasticity3D (class in tacs.elements)</a>
-</li>
       <li><a href="core/elements.html#tacs.elements.LinearHexaBasis">LinearHexaBasis (class in tacs.elements)</a>
 </li>
       <li><a href="core/elements.html#tacs.elements.LinearQuadBasis">LinearQuadBasis (class in tacs.elements)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/elements.html#tacs.elements.LinearTetrahedralBasis">LinearTetrahedralBasis (class in tacs.elements)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.LinearThermoelasticity2D">LinearThermoelasticity2D (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.LinearThermoelasticity3D">LinearThermoelasticity3D (class in tacs.elements)</a>
-</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/elements.html#tacs.elements.LinearTriangleBasis">LinearTriangleBasis (class in tacs.elements)</a>
 </li>
       <li><a href="pytacs/static.html#tacs.problems.StaticProblem.loadScale">loadScale (tacs.problems.StaticProblem property)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.loadStates">loadStates() (TACS.Integrator method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.localToGlobalArray">localToGlobalArray() (tacs.pytacs.pyTACS method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -905,9 +1238,11 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.MassElement">MassElement (class in tacs.elements)</a>
-</li>
       <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties">MaterialProperties (class in tacs.constitutive)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.matVecRHS">matVecRHS (tacs.mach.struct_problem.StructProblem property)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.matVecSolve">matVecSolve (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
       <li><a href="core/TACS.html#TACS.MeshLoader">MeshLoader (class in TACS)</a>
 </li>
@@ -917,7 +1252,7 @@
     module
 
       <ul>
-        <li><a href="core/constitutive.html#module-0">tacs.constitutive</a>, <a href="core/constitutive.html#module-tacs.constitutive">[1]</a>
+        <li><a href="core/constitutive.html#module-tacs.constitutive">tacs.constitutive</a>
 </li>
         <li><a href="pytacs/adjacency.html#module-tacs.constraints.adjacency">tacs.constraints.adjacency</a>
 </li>
@@ -925,9 +1260,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#module-tacs.constraints.panel_length">tacs.constraints.panel_length</a>
 </li>
+        <li><a href="pytacs/panel_width.html#module-tacs.constraints.panel_width">tacs.constraints.panel_width</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#module-tacs.constraints.stiffener_length">tacs.constraints.stiffener_length</a>
+</li>
         <li><a href="pytacs/volume.html#module-tacs.constraints.volume">tacs.constraints.volume</a>
 </li>
-        <li><a href="core/elements.html#module-0">tacs.elements</a>, <a href="core/elements.html#module-1">[1]</a>, <a href="core/elements.html#module-2">[2]</a>, <a href="core/elements.html#module-tacs.elements">[3]</a>
+        <li><a href="core/elements.html#module-tacs.elements">tacs.elements</a>
 </li>
         <li><a href="core/functions.html#module-tacs.functions">tacs.functions</a>
 </li>
@@ -941,10 +1280,28 @@
 </li>
         <li><a href="pytacs/pytacs_module.html#module-tacs.pytacs">tacs.pytacs</a>
 </li>
+        <li><a href="pytacs/base_solver.html#module-tacs.solvers.base">tacs.solvers.base</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#module-tacs.solvers.continuation">tacs.solvers.continuation</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#module-tacs.solvers.newton">tacs.solvers.newton</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/functions.html#tacs.functions.MomentOfInertia">MomentOfInertia (class in tacs.functions)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.name">name (tacs.mach.struct_problem.StructProblem property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver">NewtonSolver (class in tacs.solvers)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -962,15 +1319,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint">PanelLengthConstraint (class in tacs.constraints)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.PCMHeatConduction2D">PCMHeatConduction2D (class in tacs.elements)</a>
+      <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint">PanelWidthConstraint (class in tacs.constraints)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.persistStates">persistStates() (TACS.Integrator method)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.PhaseChangeMaterialConstitutive">PhaseChangeMaterialConstitutive (class in tacs.constitutive)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.phi">phi (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.PlaneStressConstitutive">PlaneStressConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.PointMassConstitutive">PointMassConstitutive (class in tacs.constitutive)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.pLoad">pLoad (tacs.mach.struct_problem.StructProblem property)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.postAdjoint">postAdjoint() (TACS.Integrator method)</a>
 </li>
@@ -982,6 +1337,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.printDefaultOptions">(tacs.constraints.DVConstraint class method)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.printDefaultOptions">(tacs.constraints.PanelLengthConstraint class method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.printDefaultOptions">(tacs.constraints.PanelWidthConstraint class method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.printDefaultOptions">(tacs.constraints.StiffenerLengthConstraint class method)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.printDefaultOptions">(tacs.constraints.VolumeConstraint class method)</a>
 </li>
@@ -995,6 +1354,42 @@
 </li>
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.printDefaultOptions">(tacs.pytacs.pyTACS class method)</a>
 </li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.printDefaultOptions">(tacs.solvers.BaseSolver class method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.printDefaultOptions">(tacs.solvers.ContinuationSolver class method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.printDefaultOptions">(tacs.solvers.NewtonSolver class method)</a>
+</li>
+      </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.printModifiedOptions">printModifiedOptions() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.printModifiedOptions">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.printModifiedOptions">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.printModifiedOptions">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.printModifiedOptions">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.printModifiedOptions">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.printModifiedOptions">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.printModifiedOptions">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.printModifiedOptions">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.printModifiedOptions">(tacs.problems.TransientProblem method)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.printModifiedOptions">(tacs.pytacs.pyTACS method)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.printModifiedOptions">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.printModifiedOptions">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.printModifiedOptions">(tacs.solvers.NewtonSolver method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1004,6 +1399,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.printOptions">(tacs.constraints.DVConstraint method)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.printOptions">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.printOptions">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.printOptions">(tacs.constraints.StiffenerLengthConstraint method)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.printOptions">(tacs.constraints.VolumeConstraint method)</a>
 </li>
@@ -1017,6 +1416,12 @@
 </li>
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.printOptions">(tacs.pytacs.pyTACS method)</a>
 </li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.printOptions">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.printOptions">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.printOptions">(tacs.solvers.NewtonSolver method)</a>
+</li>
       </ul></li>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS">pyTACS (class in tacs.pytacs)</a>
 </li>
@@ -1026,38 +1431,14 @@
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.Quad16NonlinearShell">Quad16NonlinearShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad16NonlinearThermalShell">Quad16NonlinearThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad16Shell">Quad16Shell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad16ThermalShell">Quad16ThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad4NonlinearShell">Quad4NonlinearShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad4NonlinearThermalShell">Quad4NonlinearThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad4Shell">Quad4Shell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad4ThermalShell">Quad4ThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad9NonlinearShell">Quad9NonlinearShell (class in tacs.elements)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.Quad9NonlinearThermalShell">Quad9NonlinearThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad9Shell">Quad9Shell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Quad9ThermalShell">Quad9ThermalShell (class in tacs.elements)</a>
-</li>
       <li><a href="core/elements.html#tacs.elements.QuadraticHexaBasis">QuadraticHexaBasis (class in tacs.elements)</a>
 </li>
       <li><a href="core/elements.html#tacs.elements.QuadraticQuadBasis">QuadraticQuadBasis (class in tacs.elements)</a>
 </li>
       <li><a href="core/elements.html#tacs.elements.QuadraticTetrahedralBasis">QuadraticTetrahedralBasis (class in tacs.elements)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/elements.html#tacs.elements.QuadraticTriangleBasis">QuadraticTriangleBasis (class in tacs.elements)</a>
 </li>
       <li><a href="core/elements.html#tacs.elements.QuarticQuadBasis">QuarticQuadBasis (class in tacs.elements)</a>
@@ -1070,14 +1451,20 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.RBE2">RBE2 (class in tacs.elements)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="core/elements.html#tacs.elements.RBE3">RBE3 (class in tacs.elements)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.readExternalForceFile">readExternalForceFile() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.reorderVec">reorderVec() (TACS.Assembler method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.reset">reset() (tacs.solvers.BaseSolver method)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.reset">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.reset">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1090,16 +1477,60 @@
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setAbsTol">setAbsTol() (TACS.Integrator method)</a>
 </li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setAdjoint">setAdjoint() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setAdjointRHS">setAdjointRHS() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.setAuxElements">setAuxElements() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.setBCs">setBCs() (TACS.Assembler method)</a>
+</li>
+      <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.setBCsInVec">setBCsInVec() (tacs.pytacs.pyTACS method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.setBCValuesFromVec">setBCValuesFromVec() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Creator.setBoundaryConditions">setBoundaryConditions() (TACS.Creator method)</a>
 </li>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.setCallback">setCallback() (tacs.solvers.BaseSolver method)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.setCallback">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.setCallback">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
       <li><a href="core/functions.html#tacs.functions.Compliance.setComplianceType">setComplianceType() (tacs.functions.Compliance method)</a>
 </li>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.setConvergenceTolerance">setConvergenceTolerance() (tacs.solvers.BaseSolver method)</a>
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.setConvergenceTolerance">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.setConvergenceTolerance">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.setCoordName">setCoordName() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.setCoordName">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setCoordName">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setCoordName">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setCoordName">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setCoordName">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setCoordName">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.setCoordName">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.setCoordName">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.setCoordName">(tacs.problems.TransientProblem method)</a>
+</li>
+      </ul></li>
       <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.setDensity">setDensity() (tacs.constitutive.MaterialProperties method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.setDependentNodes">setDependentNodes() (TACS.Assembler method)</a>
@@ -1113,7 +1544,13 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setDesignVars">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setDesignVars">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setDesignVars">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setDesignVars">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setDesignVars">(tacs.mach.struct_problem.StructProblem method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setDesignVars">(tacs.problems.BucklingProblem method)</a>
 </li>
@@ -1124,7 +1561,7 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.setDesignVars">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="core/constitutive.html#tacs.constitutive.ShellConstitutive.setDrillingRegularization">setDrillingRegularization() (tacs.constitutive.ShellConstitutive method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setDVGeo">setDVGeo() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.MeshLoader.setElement">setElement() (TACS.MeshLoader method)</a>
 </li>
@@ -1136,6 +1573,10 @@
         <li><a href="core/TACS.html#TACS.Creator.setElements">(TACS.Creator method)</a>
 </li>
       </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setExternalForce">setExternalForce() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
+      <li><a href="core/constitutive.html#tacs.constitutive.OrthotropicPly.setFailureCriterion">setFailureCriterion() (tacs.constitutive.OrthotropicPly method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Integrator.setFH5">setFH5() (TACS.Integrator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setFunctions">setFunctions() (TACS.Integrator method)</a>
@@ -1154,7 +1595,19 @@
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setKrylovSubspaceMethod">setKrylovSubspaceMethod() (TACS.Integrator method)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setKSWeight">setKSWeight() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
+      <li><a href="core/functions.html#tacs.functions.KSDisplacement.setKSAggregationType">setKSAggregationType() (tacs.functions.KSDisplacement method)</a>
+
+      <ul>
+        <li><a href="core/functions.html#tacs.functions.KSFailure.setKSAggregationType">(tacs.functions.KSFailure method)</a>
+</li>
+        <li><a href="core/functions.html#tacs.functions.KSTemperature.setKSAggregationType">(tacs.functions.KSTemperature method)</a>
+</li>
+      </ul></li>
+      <li><a href="core/functions.html#tacs.functions.KSDisplacement.setKSDisplacementType">setKSDisplacementType() (tacs.functions.KSDisplacement method)</a>
+</li>
+      <li><a href="core/functions.html#tacs.functions.KSFailure.setKSFailureType">setKSFailureType() (tacs.functions.KSFailure method)</a>
+</li>
+      <li><a href="core/functions.html#tacs.functions.KSTemperature.setKSTemperatureType">setKSTemperatureType() (tacs.functions.KSTemperature method)</a>
 </li>
       <li><a href="pytacs/static.html#tacs.problems.StaticProblem.setLoadScale">setLoadScale() (tacs.problems.StaticProblem method)</a>
 </li>
@@ -1171,6 +1624,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setNodes">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setNodes">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setNodes">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setNodes">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setNodes">(tacs.problems.BucklingProblem method)</a>
@@ -1182,6 +1639,8 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.setNodes">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="core/TACS.html#TACS.Assembler.setNumThreads">setNumThreads() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.setOption">setOption() (tacs.constraints.AdjacencyConstraint method)</a>
@@ -1190,6 +1649,10 @@
         <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.setOption">(tacs.constraints.DVConstraint method)</a>
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setOption">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setOption">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setOption">(tacs.constraints.StiffenerLengthConstraint method)</a>
 </li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setOption">(tacs.constraints.VolumeConstraint method)</a>
 </li>
@@ -1203,44 +1666,78 @@
 </li>
         <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.setOption">(tacs.pytacs.pyTACS method)</a>
 </li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.setOption">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.setOption">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.setOption">(tacs.solvers.NewtonSolver method)</a>
+</li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.setOptions">setOptions() (tacs.constraints.AdjacencyConstraint method)</a>
+
+      <ul>
+        <li><a href="pytacs/dvcon.html#tacs.constraints.DVConstraint.setOptions">(tacs.constraints.DVConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setOptions">(tacs.constraints.PanelLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setOptions">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setOptions">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
+        <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setOptions">(tacs.constraints.VolumeConstraint method)</a>
+</li>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setOptions">(tacs.problems.BucklingProblem method)</a>
+</li>
+        <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.setOptions">(tacs.problems.ModalProblem method)</a>
+</li>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.setOptions">(tacs.problems.StaticProblem method)</a>
+</li>
+        <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.setOptions">(tacs.problems.TransientProblem method)</a>
+</li>
+        <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.setOptions">(tacs.pytacs.pyTACS method)</a>
+</li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.setOptions">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.setOptions">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.setOptions">(tacs.solvers.NewtonSolver method)</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Integrator.setOutputFrequency">setOutputFrequency() (TACS.Integrator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setOutputPrefix">setOutputPrefix() (TACS.Integrator method)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelPlyFractionBounds">setPanelPlyFractionBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setPanelThicknessBounds">setPanelThicknessBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
-</li>
       <li><a href="core/TACS.html#TACS.Integrator.setPrintLevel">setPrintLevel() (TACS.Integrator method)</a>
 </li>
-      <li><a href="core/TACS.html#TACS.Integrator.setRelTol">setRelTol() (TACS.Integrator method)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.RBE2.setScalingParameters">setScalingParameters() (tacs.elements.RBE2 class method)</a>
+      <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.setRefNorm">setRefNorm() (tacs.solvers.BaseSolver method)</a>
 
       <ul>
-        <li><a href="core/elements.html#tacs.elements.RBE3.setScalingParameters">(tacs.elements.RBE3 class method)</a>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.setRefNorm">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.setRefNorm">(tacs.solvers.NewtonSolver method)</a>
 </li>
       </ul></li>
+      <li><a href="core/TACS.html#TACS.Integrator.setRelTol">setRelTol() (TACS.Integrator method)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setResNorms">setResNorms() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Assembler.setSimulationTime">setSimulationTime() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/constitutive.html#tacs.constitutive.MaterialProperties.setSpecificHeat">setSpecificHeat() (tacs.constitutive.MaterialProperties method)</a>
 </li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerHeightBounds">setStiffenerHeightBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPitchBounds">setStiffenerPitchBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerPlyFractionBounds">setStiffenerPlyFractionBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.BladeStiffenedShellConstitutive.setStiffenerThicknessBounds">setStiffenerThicknessBounds() (tacs.constitutive.BladeStiffenedShellConstitutive method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.setStates">setStates() (tacs.mach.struct_problem.StructProblem method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setTimeInterval">setTimeInterval() (TACS.Integrator method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Integrator.setUseLapack">setUseLapack() (TACS.Integrator method)</a>
 </li>
+      <li><a href="core/constitutive.html#tacs.constitutive.OrthotropicPly.setUseMaxStrainCriterion">setUseMaxStrainCriterion() (tacs.constitutive.OrthotropicPly method)</a>
+</li>
+      <li><a href="core/constitutive.html#tacs.constitutive.OrthotropicPly.setUseModifiedTsaiWuCriterion">setUseModifiedTsaiWuCriterion() (tacs.constitutive.OrthotropicPly method)</a>
+</li>
       <li><a href="core/TACS.html#TACS.Integrator.setUseSchurMat">setUseSchurMat() (TACS.Integrator method)</a>
+</li>
+      <li><a href="core/constitutive.html#tacs.constitutive.OrthotropicPly.setUseTsaiWuCriterion">setUseTsaiWuCriterion() (tacs.constitutive.OrthotropicPly method)</a>
 </li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setValName">setValName() (tacs.problems.BucklingProblem method)</a>
 
@@ -1261,6 +1758,10 @@
 </li>
         <li><a href="pytacs/panel_length.html#tacs.constraints.PanelLengthConstraint.setVarName">(tacs.constraints.PanelLengthConstraint method)</a>
 </li>
+        <li><a href="pytacs/panel_width.html#tacs.constraints.PanelWidthConstraint.setVarName">(tacs.constraints.PanelWidthConstraint method)</a>
+</li>
+        <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint.setVarName">(tacs.constraints.StiffenerLengthConstraint method)</a>
+</li>
         <li><a href="pytacs/volume.html#tacs.constraints.VolumeConstraint.setVarName">(tacs.constraints.VolumeConstraint method)</a>
 </li>
         <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.setVarName">(tacs.problems.BucklingProblem method)</a>
@@ -1272,37 +1773,37 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.setVarName">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
-      <li><a href="core/constitutive.html#tacs.constitutive.ShellConstitutive">ShellConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.ShellNaturalTransform">ShellNaturalTransform (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.ShellRefAxisTransform">ShellRefAxisTransform (class in tacs.elements)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.SmearedCompositeShellConstitutive">SmearedCompositeShellConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="core/constitutive.html#tacs.constitutive.SolidConstitutive">SolidConstitutive (class in tacs.constitutive)</a>
-</li>
-      <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.solve">solve() (tacs.problems.BucklingProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.solve">solve() (tacs.mach.struct_problem.StructProblem method)</a>
 
       <ul>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.solve">(tacs.problems.BucklingProblem method)</a>
+</li>
         <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.solve">(tacs.problems.ModalProblem method)</a>
 </li>
         <li><a href="pytacs/static.html#tacs.problems.StaticProblem.solve">(tacs.problems.StaticProblem method)</a>
 </li>
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.solve">(tacs.problems.TransientProblem method)</a>
 </li>
+        <li><a href="pytacs/base_solver.html#tacs.solvers.BaseSolver.solve">(tacs.solvers.BaseSolver method)</a>
+</li>
+        <li><a href="pytacs/continuation_solver.html#tacs.solvers.ContinuationSolver.solve">(tacs.solvers.ContinuationSolver method)</a>
+</li>
+        <li><a href="pytacs/newton_solver.html#tacs.solvers.NewtonSolver.solve">(tacs.solvers.NewtonSolver method)</a>
+</li>
       </ul></li>
-      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.solveAdjoint">solveAdjoint() (tacs.problems.StaticProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.solveAdjoint">solveAdjoint() (tacs.mach.struct_problem.StructProblem method)</a>
+
+      <ul>
+        <li><a href="pytacs/static.html#tacs.problems.StaticProblem.solveAdjoint">(tacs.problems.StaticProblem method)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.SpringElement">SpringElement (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.SpringIdentityTransform">SpringIdentityTransform (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.SpringRefAxisTransform">SpringRefAxisTransform (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.SpringRefFrameTransform">SpringRefFrameTransform (class in tacs.elements)</a>
+      </ul></li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.solveForward">solveForward() (tacs.problems.StaticProblem method)</a>
 </li>
       <li><a href="pytacs/static.html#tacs.problems.StaticProblem">StaticProblem (class in tacs.problems)</a>
+</li>
+      <li><a href="pytacs/stiffener_length.html#tacs.constraints.StiffenerLengthConstraint">StiffenerLengthConstraint (class in tacs.constraints)</a>
+</li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem">StructProblem (class in tacs.mach.struct_problem)</a>
 </li>
       <li><a href="core/functions.html#tacs.functions.StructuralMass">StructuralMass (class in tacs.functions)</a>
 </li>
@@ -1316,7 +1817,7 @@
     tacs.constitutive
 
       <ul>
-        <li><a href="core/constitutive.html#module-0">module</a>, <a href="core/constitutive.html#module-tacs.constitutive">[1]</a>
+        <li><a href="core/constitutive.html#module-tacs.constitutive">module</a>
 </li>
       </ul></li>
       <li>
@@ -1341,6 +1842,20 @@
 </li>
       </ul></li>
       <li>
+    tacs.constraints.panel_width
+
+      <ul>
+        <li><a href="pytacs/panel_width.html#module-tacs.constraints.panel_width">module</a>
+</li>
+      </ul></li>
+      <li>
+    tacs.constraints.stiffener_length
+
+      <ul>
+        <li><a href="pytacs/stiffener_length.html#module-tacs.constraints.stiffener_length">module</a>
+</li>
+      </ul></li>
+      <li>
     tacs.constraints.volume
 
       <ul>
@@ -1351,7 +1866,7 @@
     tacs.elements
 
       <ul>
-        <li><a href="core/elements.html#module-0">module</a>, <a href="core/elements.html#module-1">[1]</a>, <a href="core/elements.html#module-2">[2]</a>, <a href="core/elements.html#module-tacs.elements">[3]</a>
+        <li><a href="core/elements.html#module-tacs.elements">module</a>
 </li>
       </ul></li>
       <li>
@@ -1361,6 +1876,8 @@
         <li><a href="core/functions.html#module-tacs.functions">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     tacs.problems.buckling
 
@@ -1368,8 +1885,6 @@
         <li><a href="pytacs/buckling.html#module-tacs.problems.buckling">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     tacs.problems.modal
 
@@ -1398,19 +1913,44 @@
         <li><a href="pytacs/pytacs_module.html#module-tacs.pytacs">module</a>
 </li>
       </ul></li>
+      <li>
+    tacs.solvers.base
+
+      <ul>
+        <li><a href="pytacs/base_solver.html#module-tacs.solvers.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    tacs.solvers.continuation
+
+      <ul>
+        <li><a href="pytacs/continuation_solver.html#module-tacs.solvers.continuation">module</a>
+</li>
+      </ul></li>
+      <li>
+    tacs.solvers.newton
+
+      <ul>
+        <li><a href="pytacs/newton_solver.html#module-tacs.solvers.newton">module</a>
+</li>
+      </ul></li>
       <li><a href="core/TACS.html#TACS.Assembler.testElement">testElement() (TACS.Assembler method)</a>
 </li>
       <li><a href="core/TACS.html#TACS.Assembler.testFunction">testFunction() (TACS.Assembler method)</a>
 </li>
       <li><a href="pytacs/transient.html#tacs.problems.TransientProblem">TransientProblem (class in tacs.problems)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.Tri3NonlinearShell">Tri3NonlinearShell (class in tacs.elements)</a>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.updateJacobian">updateJacobian() (tacs.problems.StaticProblem method)</a>
 </li>
-      <li><a href="core/elements.html#tacs.elements.Tri3NonlinearThermalShell">Tri3NonlinearThermalShell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Tri3Shell">Tri3Shell (class in tacs.elements)</a>
-</li>
-      <li><a href="core/elements.html#tacs.elements.Tri3ThermalShell">Tri3ThermalShell (class in tacs.elements)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.updatePreconditioner">updatePreconditioner() (tacs.problems.StaticProblem method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1428,6 +1968,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pytacs/pytacs_module.html#tacs.pytacs.pyTACS.writeBDF">writeBDF() (tacs.pytacs.pyTACS method)</a>
 </li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.writeExternalForceFile">writeExternalForceFile() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
       <li><a href="pytacs/static.html#tacs.problems.StaticProblem.writeLoadToBDF">writeLoadToBDF() (tacs.problems.StaticProblem method)</a>
 </li>
       <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.writeSensFile">writeSensFile() (tacs.problems.BucklingProblem method)</a>
@@ -1442,9 +1984,11 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.writeSolution">writeSolution() (tacs.problems.BucklingProblem method)</a>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.writeSolution">writeSolution() (tacs.mach.struct_problem.StructProblem method)</a>
 
       <ul>
+        <li><a href="pytacs/buckling.html#tacs.problems.BucklingProblem.writeSolution">(tacs.problems.BucklingProblem method)</a>
+</li>
         <li><a href="pytacs/modal.html#tacs.problems.ModalProblem.writeSolution">(tacs.problems.ModalProblem method)</a>
 </li>
         <li><a href="pytacs/static.html#tacs.problems.StaticProblem.writeSolution">(tacs.problems.StaticProblem method)</a>
@@ -1452,6 +1996,8 @@
         <li><a href="pytacs/transient.html#tacs.problems.TransientProblem.writeSolution">(tacs.problems.TransientProblem method)</a>
 </li>
       </ul></li>
+      <li><a href="pytacs/static.html#tacs.problems.StaticProblem.writeSolutionHistory">writeSolutionHistory() (tacs.problems.StaticProblem method)</a>
+</li>
       <li><a href="pytacs/adjacency.html#tacs.constraints.AdjacencyConstraint.writeVisualization">writeVisualization() (tacs.constraints.AdjacencyConstraint method)</a>
 
       <ul>
@@ -1484,6 +2030,8 @@
         <li><a href="pytacs/static.html#tacs.problems.StaticProblem.zeroVariables">(tacs.problems.StaticProblem method)</a>
 </li>
       </ul></li>
+      <li><a href="mach/mach.html#tacs.mach.struct_problem.StructProblem.zeroVectors">zeroVectors() (tacs.mach.struct_problem.StructProblem method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1493,9 +2041,9 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -1503,13 +2051,13 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1524,7 +2072,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2018, Graeme Kennedy.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>
